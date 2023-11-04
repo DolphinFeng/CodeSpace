@@ -1,0 +1,103 @@
+*{
+    /* body里面默认内外边距 */
+    margin: 0;
+    padding: 0;
+}
+.music__hd{
+    position: relative;
+    height: 303px;
+    overflow: auto;
+}
+.music__hd .bg{
+    /* 全是块级元素，不用定义宽度 */
+    /* 302.5px,浏览器识别不到小数，除二是因为二倍屏幕 */
+    width: 100%;
+    height: 303px;
+    background-image: url(./1.jpg);
+    /* 这里的参数也可以是cover */
+    background-size: 100% 500px;
+    /* 值越大虚化越猛  让music__hd-title脱离文档流，文字和< 浮动，定位可以脱离*/
+    filter: blur(10px);
+    /* 保险起见，上面再给个position */
+    position: absolute;
+    z-index: -1;
+}
+/* .music__hd-title{
+    position: absolute;
+} */
+
+.music__hd-title{
+    /* 子容器有个margintop的时候会把父容器带下来，所以父容器BFC */
+    margin: 45px 0;
+    color: white;
+    padding: 0 40px;
+}
+.back{
+    float: left;
+}
+.title{
+    /* 非会计居中，文字什么都不算，非块 */
+    text-align: center;
+    font-size: 12px;
+}
+
+.music__bd{
+    position: absolute;
+    top: 130px;
+    width: 100%;
+    /* 100vh是整个屏幕高度 -左右一定要有空格 */
+    height: calc(100vh - 130px);
+    background-color: white;
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+}
+.bd-pic{
+    width: 257px;
+    height: 283px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -29px;
+    box-shadow: 0 0 10px #efefef;
+}
+.bd-pic img{
+    width: 100%;
+}
+.bd-desc{
+    margin-top: 280px;
+    text-align: center;
+}
+.name{
+    /* width: 174px;
+    height: 40px; */
+    font-size: 21px;
+    font-family: SourceHanSansCN;
+    font-weight: bold;
+    color: #000000;
+    line-height: 55px;
+}
+.author{
+    /* width: 53px;
+    height: 17px; */
+    font-size: 15px;
+    font-family: SourceHanSansCN;
+    font-weight: bold;
+    color: #4F4F4F;
+    line-height: 21px;
+}
+.bd-line{
+    width: 225px;
+    margin: 20px auto;
+    background-color: #c6c6c6;
+    height: 1px;
+}
+.progresss-bar{
+    width: 0;
+    height: 100%;
+    background-color: #F03030;
+}

@@ -1,0 +1,50 @@
+.page{
+    /* 移动端占满整个page写法 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* bfc属性，很重要的属性：超出则滚动，当内容超出父元素，上下或左右滚动  */
+    /* 手机滚屏则滚动 */
+    overflow-y: auto ;
+    /* 这也是个css考点，让滚动如丝般顺滑  和手touch粘合 移动端浏览器前缀都是-webkit 手机端（移动端）浏览器内核基本上都是-webkit safari就是*/
+    /* 不加webkit,因为overflow-scrolling 在试验阶段 */
+    -webkit-overflow-scrolling: touch;
+    /* IE盒模型 */
+    /* 文章标题：weui源码解析一二三 *************************************************************/
+    box-sizing: border-box;
+    z-index: 1;
+}
+body{
+    /* 这里的body作用是变量声明 */
+    /* 为什么要设置css变量呢？
+    统一更改  管理  利用  应用场景：皮肤更换 */
+    --weui-BG-0: #111;
+    --weui-FG-1: rgba(255,255,255,0.5);
+    --weui-BG-2: #191919;
+}
+.page,body{
+    /* 这里可以看出weui技术很激进 用的css4的变量 css 也有变量！  */
+    background-color: var(--weui-BG-0);
+}
+body{
+    color: rgba(255,255,255,0.8);
+}
+.page_hd{
+    padding: 40px;
+}
+.page_title{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+.page_desc{
+    margin-top: 4px;
+    color: var(--weui-FG-1);
+    text-align: left;
+    font-size: 14px;
+}
+.page_bd{
+    padding-bottom: 20px;
+}

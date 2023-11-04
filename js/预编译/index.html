@@ -1,0 +1,12 @@
+<script>
+    // 声明提升（缺点），因为？
+    // console.log(a)
+    // var a = 123
+    // 编译的作用就是找到有效标识符（函数的参数，变量），全局完了之后开始执行，先执行console.log后执行a = 123 ,编译不会进行赋值操作，所以是undefined
+    foo()
+    // 执行函数无论写哪里都可以 ，因为函数声明整体提升，最终函数体都会跑到当前域的最上面
+    function foo(){
+        var a = 21
+        console.log(a)
+    }
+</script>

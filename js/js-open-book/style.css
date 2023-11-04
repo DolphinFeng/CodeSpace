@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    /* 对齐方式，对准一条线 */
+    box-sizing: border-box;
+    /* 修改浏览器的渲染规则  将容器声明成IE模型，里面自己收缩，不用这个谷歌会向外扩 */
+}
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    font: 100%/1.25 Helvetiva, arial, 宋体;
+    perspective: 1000px;
+    background-color: pink;
+    background-image: linear-gradient(to bottom, rgb(129, 220, 188),pink);
+    /* 往下渐变颜色 */
+}
+
+.p3d{
+    transform-style: preserve-3d;
+    /* 配合前面perspective 1000使用 */
+}
+
+.book{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    margin-top: -150px;
+    color: white;
+    /* 颜色属性可以继承 */
+    -webkit-transform: rotateX(45deg);
+    /* 前面的东西是谷歌的内核，防止用户的谷歌版本太低 */
+    /* -moz-  是火狐的 */
+    /* -o- 欧朋opera浏览器 */
+    user-select: none;
+    /* 用户的选择为none */
+}
+
+.front-cover{
+    cursor: move;
+    /* 鼠标格式 */
+    transform-origin: 0 50%;
+    transform: rotateY(0deg);
+    /* x为0 y为50% */
+}
+
+.page{
+    width: 300px;
+    height: 300px;
+    padding: 1em;
+    /* em是相对于父容器,父容器字体大小为10的话,1em就是10px */
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: 2em;
+}
+
+.inside{
+    background-color: #d93e2b;
+}
+.outside{
+    background-color: white;
+}
+
+.front-cover .outside{
+    background-image: url(./cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateZ(3px)
+}
+
+.flip{
+    transform: rotateY(180deg)
+}
+
+.back-cover .outside{
+    transform: translateZ(-3px)
+}
+
+.back-cover .inside{
+    background-color: #d93e2b;
+}
+
+.card,
+.shadow{
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明状态 */
+    width: 196px;
+    height: 132px;
+    position: absolute;
+    left: 60px;
+    top: 60px;
+    transform-origin: 0 100%;
+}
+
+.shadow{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card{
+    background-image: url(./lamb.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

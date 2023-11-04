@@ -1,0 +1,39 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-family: "Avenir Next", Helevetica, sans-serif;
+  text-align: center;
+}
+body {
+  max-width: 500px;
+  margin: 30px auto;
+}
+input#list-input {
+  padding: 10px;
+  width: 350px;
+  height: 60px;
+  font-size: 20px;
+  border: 0;
+  border-bottom: 1px solid #a5a7b1;
+  outline: 0;
+}
+.todolist {
+  width: 350px;
+  padding: 6px 10px;
+  margin: 10px auto 0;
+  text-align: left;
+  font-size: 20px;
+  list-style: none;
+}
+li{
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+input[type=checkbox]:checked + span{
+/*   color: red; */
+  text-decoration: line-through;
+  color: grey;
+}

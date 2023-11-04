@@ -1,0 +1,67 @@
+<script>
+
+var height = [1,2]
+var indexMax = []
+//找出最大值，第二大值的所有下标，放入一个数组，取出数组的最小值和最大值，两个相减后*第二大数
+    var max = height[0]
+    
+    var secondMax = 0
+    //求出最大值
+    for (var i = 0; i < height.length; i++) {
+        if(height[i]>max) {
+            max = height[i]
+        }
+    }
+    for(var i = 0; i < height.length; i++) {
+        if(height[i] === max){
+            indexMax.push(i)
+        }
+    }
+    //  下面是找出重复项的所有下标
+    // height.forEach((max,index)=>{
+	// 	if(height.indexOf(max)!=index){
+	// 		rep.push(height.indexOf(max),index)
+	// 	}
+	// })	
+    //求出第二大值
+    for (var i = 0; i < height.length; i++) {
+        if(secondMax < height[i] && height[i] != max){
+            secondMax = height[i]
+        }
+        if(height[i] == height[i+1]){
+            secondMax = height[i]
+        }
+    }
+    for(var i = 0; i < height.length; i++) {
+        if(height[i] === secondMax){
+            indexMax.push(i)
+        }
+    }
+    //求出indexMax的最大值和最小值
+    var m = indexMax[0]
+    var n = indexMax[0]
+    for(var i = 1; i < indexMax.length ; i ++){
+        if(indexMax[i]>m){
+            m = indexMax[i]
+        }
+        if(indexMax[i]<n){
+            n = indexMax[i]
+        }
+    }
+    var s1 = (m - n) * secondMax
+    //--------------------------------------------------------
+    if(height[m] !== max || height.length == 2){
+        s2 = 0
+    }else{
+        s2 = (m - n) * max
+    }
+    
+    if(s1 < s2){
+        s = s2
+    }else{
+        s = s1
+    }
+    
+
+
+</script>

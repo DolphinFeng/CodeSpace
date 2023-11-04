@@ -1,0 +1,1 @@
+数据类型：nunber 字符串 数组 undefined Nan,其余都是对象

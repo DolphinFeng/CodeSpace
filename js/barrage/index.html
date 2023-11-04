@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            position: absolute;
+        }
+        /* 宽高不在css设置，是因为是和视频一起变化，动态的，用js */
+    </style>
+</head>
+<body>
+    
+
+    <div class="wrap">
+        <h1>Peaky Blinders</h1>
+        <div class="main">
+            <canvas id="canvas"></canvas>
+            <!-- 定位 相对，绝对，固定，粘性（通讯录a元素置顶） -->
+            <video src="./video.mp4" id="video" controls="true" width="720" height="480"></video>
+        </div>
+        <div class="content">
+            <!-- input特殊在读取value值 -->
+            <input type="text" id="text">
+            <input type="button" value="发弹幕" id="btn">
+            <!-- 取色器 -->
+            <input type="color" id="color">
+            <!-- 进度条这样写太丑了，css描绘太复杂 -->
+            <!-- 这个用来控制弹幕的大小 -->
+            <input type="range" id="range" max="40" min="20">
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <!-- 执行js 后加载js js可能是本地文件，也可能是在线地址，如果放在开头，执行这个的时候会堵住html的加载，甚至会报错，读取canvas都不知道，如果保证js内容在页面加载完毕后执行也可以放在前面，就是window.onload这个方法 -->
+</body>
+</html>

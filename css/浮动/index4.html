@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+            width: 200px;
+            height: 100px;
+            float: left;
+        }
+        /* ul{
+            height: 100px;
+        } */
+        /* 选中一堆li再挑第几个，而不是ul */
+        li:nth-child(1){
+            background: red;    
+        }
+        li:nth-child(2){
+            background: yellow;     
+        }
+        li:nth-child(3){
+            background: green;     
+        }
+        .text{
+            width: 100px;
+            height: 200px;
+            background: blue; 
+            /* clear: both;  */
+            /* 这个方法最简单，但是不符合人类思维方式，谁出的问题谁自己解决 */
+        }
+        /* ul{
+            height: 100px; 这样做可以但是不能适配用户屏幕
+        } */
+        /* .clear{
+            height: 100px; 
+            这样写跟上面一样的。low
+        } */
+        /* .clear{
+            clear为浮动量身定制，浮动相当于一个水流，终归要流到</ul>，在这之前有个clear挡住了，必须要写在闭标签之前一个 这个参数
+            clear: both;
+        } */
+
+        /* 尾元素after闭标签之前，before 开标签之后  不定位不出来的，伪元素不是块级，行内，行内块，所以要强心纳入进来*/
+        /* .clear::after{
+            content: '';
+            clear: both;
+            display: block;
+        } */
+        ul{
+            /* 超出auto(自适应，过高就滚动)和hidden都可以 */
+            /* overflow: hidden; */
+            /* absolute导致ul脱离 */
+            /* position: absolute; */
+            /* 弹性布局 */
+            /* 这个容器就变成BFC属性 */
+            display: flex;
+            /* float: left; */
+            /* ul也有高度了！整个都脱离了文档流，text没有下去合情合理 */
+            /* display: inline-block; BFC不脱离文档流 */
+            /* display: flex; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="clear">
+            
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <!-- ul里面是可以放div的  甚至html的标签名都可以乱写，会挨打噢-->
+            <!-- <div class="clear"></div> -->
+        </ul>
+
+        <div class="text">Hello World</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEUI源码</title>
+    <style>
+        .weui-btn {
+            /* 内部元素可以针对这里相对定位     relative是考虑全面 */
+            position: relative;
+            /* 让它变成一个块级的盒子 */
+            display: block;
+            width: 184px;
+            /* margin: 0 auto; */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 12px 24px;
+            box-sizing: border-box;
+            font-size: 17px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            line-height: 1.41176471;
+            border-radius: 8px;
+            /* 按上去的时候高亮 0000就是把他去掉  css reset不同的浏览器有不同的效果 */
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            /* 让用户无法选中上面的文字,按钮上的字不用选中复制 */
+            user-select: none;
+        }
+        .weui-btn_primary{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- css 国际命名规范BEM(可以去掘金搜) weui-btn Block 状态 _primary -->
+    <!-- 按钮我们不用button button太复杂 而且不跳转 -->
+    <a href="javascript:;" class="weui-btn weui-btn_primary">主要操作</a>
+</body>
+</html>

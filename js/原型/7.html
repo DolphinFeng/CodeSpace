@@ -1,0 +1,15 @@
+<script>
+
+    Person.prototype = {
+        name: "小黑子",
+        sayName: function(){
+            console.log(this.name);
+        }
+    }
+    function Person(){
+        this.name = '大黑子'
+    }
+    var p = new Person();
+    console.log(p.sayName())
+
+</script>

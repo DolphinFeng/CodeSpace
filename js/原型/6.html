@@ -1,0 +1,23 @@
+<script>
+    Ground.prototype.lastName = '蔡'
+    function Ground(){
+
+    }
+    var Ground = new Ground()
+    // 被赋值为一个实例对象
+    Father.prototype = Ground
+    function Father(){
+        this.name = '徐坤'
+    }
+    var father = new Father()
+
+    Son.prototype = father
+    function Son(){
+        this.hobbit = 'reading'
+    }
+    var son = new Son()
+    // 原型链
+    console.log(son.name);
+    console.log(son.lastName);
+
+</script>

@@ -1,0 +1,89 @@
+<!-- <script>
+
+var num = 123
+
+var n = new Number(123)
+
+var flag = true 
+
+var f = new Boolean(true)
+
+var u = undefined
+
+var nu = null //这两个基本数据类型没有函数创建，
+
+var str = 'hello world'//字符串字面量
+
+var s = new String('hello');//构造函数 基本数据类型，不用函数创建   这个东西不用
+
+var arr = ['a', 'b', 'c', 'd', 'e', 'f']
+
+var array1 = new Array(4)// 引用类型 数组就一直用这种
+
+//当你不确定数组内容是什么，但是知道有四个坑位的时候用函数
+
+//放四个1
+var array2 = new Array(4).fill(1)
+
+//遍历
+arr.forEach(function(item,index,arr){
+    console.log(index,item)
+})//方法一
+
+for(var i = 0; i < arr.length; i++){
+    console.log(arr[i])
+}//方法二
+
+var newArr = arr.map(function(item,index,arr){
+    return item + '1' 
+})//方法三，这个map会返回一个数组
+
+</script> -->
+
+
+
+<!-- <script>
+//二维数组，也叫矩阵
+var arr = [
+    [1,2,3,43,5],
+    [1,2,3,44,5],
+    [1,2,3,45,5],
+    [1,2,3,46,5],
+    [1,2,3,47,5]
+]
+// arr.forEach(function(item,index,arr){
+//     item.forEach(function(content,index,array){
+//         console.log(content)
+//     })
+// })//方法一
+
+for(var i = 0; i<arr.length; i++){
+    for(var j = 0;j<arr[i].length; j++){
+        console.log(arr[i][j])
+    }
+}//方法二 要遍历4*4编
+
+//时间复杂度  空间复杂度 衡量代码是否牛逼   越低越好   rom硬盘空间 ram运存
+
+var arr = []
+var obj = {}//只要代码创建了过多的数组，对象，空间复杂度就会变高       
+//一般都是一高一低，很难两个都降，时间复杂度低是最好的，因为现在配置都很高
+
+
+//优先时间复杂度
+
+</script> -->
+
+<script>
+
+//对象
+var obj = {
+    name: '萍萍',
+    age:18,
+    sex:'girl',
+    1:10//这里想要调用1，console.log(obj[1])
+}
+obj.girlfrend =  '洪'//添加
+console.log(obj.name)//对象是最复杂的东西，万物皆对象  key.value键.值
+
+</script>

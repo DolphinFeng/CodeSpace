@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- video img是媒体标签，不需要px单位 默认宽300 高150，不建议在css设宽高，怕变形 -->
+    <!-- canvas自带api，画图 难在属性太多了，用百度就可以了-->
+    <!-- dom指的是html结构 -->
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas")
+        // 得到一个画布ctx
+        let ctx = canvas.getContext("2d")
+        // 先有绿色的画笔，才能画出绿色，不能在fillRect之后
+        // ctx.fillStyle = "green"
+        // 四个参数为坐标：x y x y 两个点，fillRect可以两点出一个矩形。默认黑色
+        // ctx.fillRect(10,10,55,50)
+        // 相当于一个尺子，画圆用圆规
+        // console.log(ctx); 是个对象，有很多属性和方法，难在这里，都很有用，隐式原型（来自构造函数）。getcontext相当于new了一下
+        // console.log(canvas);
+
+        // ctx.fillRect(10,10,100,50)
+        // stroke笔画，轻抚
+        // ctx.strokeRect(10,70,100,50)
+        // 笔尖放在纸上，然后移动
+        // ctx.beginPath()
+        // 50,50是起始位置
+        // ctx.moveTo(50,50)
+        // 200,50是最终位置
+        // ctx.lineTo(200,50)
+        // ctx.lineTo(200,200)
+        // 闭合所有的点
+        // ctx.closePath()
+        // 画线
+        // ctx.stroke()
+        // fillrect专门矩形
+        // ctx.fill()
+
+        // 不规则
+        // ctx.beginPath();
+        // 曲线，不是由点构成（别钻牛角）两点坐标 弧度 
+        // ctx.arc(50,50,40,0,Math.PI / 2)
+        // ctx.stroke()
+        // 贝塞尔曲线是啥？可以描绘各种不规则的曲线
+
+        ctx.font = '50px sans-serif'
+        // 内容 10,100开始
+        ctx.fillText('床前明月光',10,100)
+        // ctx.stroke() 描绘没有填充色的内容
+        // 空心字 
+        // ctx.strokeText('疑是地上霜',10,200)
+        ctx.fillText('疑是地上霜',10,100)
+        // 所以弹幕就是用这个重叠 b站弹幕不遮住人脸，用AI
+    </script>
+</body>
+</html>

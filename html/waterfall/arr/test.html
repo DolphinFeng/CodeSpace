@@ -1,0 +1,47 @@
+<script>
+    var arr = ['a', 'b', 'c', 'd']
+    //arr.push('e')
+    //arr.splice(2,0,'hello')
+
+    console.log(arr)
+
+    arr.splice(2,4)
+
+    console.log(arr)
+
+    for(var i=0;i<arr.length;i++){//遍历
+    console.log(arr[i]+'1')
+}
+
+    arr.forEach(function(item,index,arr){//遍历
+    console.log(item,index,arr)
+})
+
+var newArr =  arr.map(function(item,i,arr){//map会返回一个新的数组
+    return item + '1'
+})
+
+var s = arr.join('-')
+
+var str = 'abcd'
+
+var array = str.split('')
+
+console.log(arr.indexOf('b'))
+
+console.log(arr.lastIndexOf('b'))
+
+var newarr = arr.reverse()
+
+var arrNum = [3,5,7,1,0]
+
+var newArrNum = arr.sort()
+
+arrNum.sort(function(a,b){//回调函数,从小到大输出
+    return a - b
+})
+
+var arr2 = [10,20,30]
+
+var newArr2 = arr.concat(arr2)
+</script>

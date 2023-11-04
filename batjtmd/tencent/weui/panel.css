@@ -1,0 +1,19 @@
+/* 面板组件，用来装一些新闻 */
+.weui-panel{
+    background-color: var(--weui-BG-2);
+    margin-top: 10px;
+    position: relative;
+    /* 超出隐藏，不出现滚动条 未来开启BFC的格式*/
+    overflow: hidden;
+}
+/* .是指一类元素，不是#  first-child指的是第一个没必要隔开，其余的会有一个10mt  如果weuipanel和：之间有个空格 */
+.weuipanel:first-child{
+    margin-top: 0px;
+}
+.weui-panel__hd{
+    padding: 16px 16px 13px;
+    color: var(--weui-FG-0);
+    font-size: 15px;
+    font-weight: 500;  
+    position: relative;
+}

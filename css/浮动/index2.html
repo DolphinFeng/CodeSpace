@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* 字体大小为0 其实换行也是个字体，影响后面的字体后面再设置另一个字体 */
+            font-size: 0;
+        }
+        /* body{
+            用于非会计元素的水平居中
+            text-align: center;
+        } */
+        div{
+            width: 100px;
+            height: 100px;
+            /* background-color: red; */
+            /* 块级编程行内块  但是有间距 */
+            /* display: inline-block; */
+            /* 行内让宽高失效 */
+            /* display: inline; */
+            float: left;
+            /* margin: 20px; */
+            /* display: inline; */
+        }
+        .item1{
+            background-color: black;
+            /* 重叠，让它脱离文档流 */
+            /* float: left; */
+            /* float: left;  文字算行内元素*/
+            /* 四个值，用于块级元素的水平居中上右下左，这里就是上右和下左都是 0 auto */
+            /* y居中这里不能实现 : 定位，弹性布局 */
+            /* margin: 0 auto;  */
+        }
+        .item2{
+            background-color: blue;
+            /* 如果仅仅只有2脱离，那么3盖住2，不会是12合一起，就想排队，1还是块级，2被拎出来了 */
+            /* float: left; */
+        }
+        .item3{
+            background-color: brown;
+            /* 想让三个去同一行，三个都脱离，前两个拓不行，楼上也要排队噢 */
+            /* float: left; */
+        }
+        /* body{
+            脱离文档流的不需要高度，逆子，不在body莉
+            width: 280px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="item1"></div><div class="item2"></div><div class="item3"></div>这样写就没有间距，但是代码不能这样写 -->
+    <div class="item1"></div>
+    <div class="item2"></div>
+    <div class="item3"></div>
+</body>
+</html>

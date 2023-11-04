@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const dolphin = {
+            name: '海豚',
+            age: 20,
+            city: '九江',
+            sendFlower: function(receiver){
+                receiver.receiveFlower(this);
+            }
+        }
+
+        const graceBestFriend = {
+            name: 'larry',
+            age: 19,
+            city: '九江',
+            receiveFlower: function(sender){
+                
+                if(grace.emotion >= 80){
+                    grace.receiveFlower(sender);
+                }else{
+                    setTimeout(function(){
+                        grace.emotion = 99
+                        grace.receiveFlower(sender)
+                    },2000)
+                }
+            }
+        }
+
+        const grace = {
+            name: 'grace',
+            age: 19,
+            city: '九江',
+            emotion: 50,
+            receiveFlower: function(sender){
+                
+                console.log(this.name+'收到'+sender.name+'花了')
+                if(this.emotion < 80){
+                    console.log('不行，我不接受')
+                }else{
+                    console.log('肘，跟我进屋')
+                }
+
+            }
+        }
+
+    </script>
+</body>
+</html>

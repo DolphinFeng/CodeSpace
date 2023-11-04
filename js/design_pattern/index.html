@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //js强大的表现力  语言精粹  对象
+        //对象字面量
+        //数据类型 简单 复杂（应用） typeOf 可以获取数据类型
+        //对象本 = 属性 + 方法
+        const cxk = {
+            name: '蔡徐坤',//key value  字符串模板中要么都用“” 要么都用‘’
+            age: 40,
+            hometown: '美国',
+            isSingle: true,
+             //匿名函数     senderFlower: function(){} 中间的：function可以去掉     形参
+            senderFlower(receiver){
+                console.log(this)  //对象内部this指向本身，所以打印全部，其他情况另外处理
+                receiver.receiveFlower(this); //这里其实就是cxk
+            }
+        }
+        //现实很复杂，美羊羊可能不会接收花       面向对象要能搞得定 设计模式
+        //送花 情商 码商
+
+        //代理模式  面试就会考这个
+        const agent = {
+            name: '小红',
+            hometown: '美国',//必须找老乡帮忙
+            //method 接口 interface
+            receiveFlower(sender){
+                //console.log('收到'+sender.name+'的花') 小红收到花要送出去
+                // if(sender === 'cxk'){
+                //     console.log('让我们在一起吧')
+                // }
+                if(myy.emotion >= 80){
+                    myy.receiveFlower(sender)
+                }else{
+                    setTimeout(function(){
+                        myy.emotion = 99
+                        myy.receiveFlower(sender)
+                    },2000)//定时器
+                }
+                
+            }
+        }
+
+        const lyf = {
+            name: '李易峰',//key value
+            age: 50,
+            hometown: '加拿大',
+            isSingle: false
+        }
+        const myy = {
+            name: '美羊羊',
+            emotion: 50,
+            receiveFlower: function(sender){
+                //console.log(this.name+'收到'+sender.name+'的花')//这是es5的写法
+                console.log(`${this.name}收到${sender.name}的花`) //es6 命令式代码表达成表达式代码  ${this.name}是一个字符串模板（先编译后执行）  low  让代码更优雅
+                if(this.emotion < 80){
+                    console.log('没心情，哒咩')
+                }else{
+                    console.log('肘，跟我进屋')
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+html{
+    background: #fff;
+    font-size: 10px;/*字体最小就是10px*/
+}
+body{
+    margin: 0;
+    font-size: 2rem;   /*html是根标签，rem相对于html的px，因此2rem是20px*/
+    display: flex;  /*弹性容器，里面的属性很多*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;/*view height 浏览器的高度*/
+}
+.clock{
+    width: 30rem;
+    height: 30rem;
+    border: 7px solid #ffedbd;
+    border-radius: 50%;/*>50都是圆形*/   /*原点在左上角，x右正，y下正 阴影扩散范围 阴影颜色*/
+    box-shadow: -4px -4px 10px rgba(67,67,67,0.1),
+                inset 4px 4px 10px rgba(168,145,128,0.6),
+                inset -4px -4px 10px rgba(201,175,155,0.2),
+                4px 4px 10px rgba(168,145,128,0.6);
+    background-image: url('./p.jpg');
+    background-size: 111%;
+    padding: 2rem;/*内边距*/
+}
+.outer-clock-face{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+}
+.outer-clock-face::before,
+.outer-clock-face::after{/*伪元素，默认不显示*/
+    content: '';
+    width: 10px;
+    height: 100%;
+    background: #1c2e03;
+    position: absolute;
+    border-radius: 8px;
+    left: 50%;
+    margin-left: -5px;
+}
+.outer-clock-face::after{
+    transform: rotate(90deg);
+    transform-origin: center center;
+}
+.marking{
+    width: 3px;
+    height: 100%;
+    background: #1c2e03;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.5px;
+}
+.marking-one{
+    transform: rotateZ(30deg);
+    transform-origin: center center;
+}
+.marking-two{
+    transform: rotateZ(60deg);
+    transform-origin: center center;
+}
+.marking-three{
+    transform: rotateZ(120deg);
+    transform-origin: center center;
+}
+.marking-four{
+    transform: rotateZ(150deg);
+    transform-origin: center center;
+}
+.inner-clock-face{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: bisque;
+    z-index: 2;/*层级提高*/
+    border-radius: 50%;
+    background-image: url('./p.jpg');
+    background-size: 125%;
+}
+.inner-clock-face::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+.hand{
+    width: 50%;
+    height: 6px;
+    background: red;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -3px;
+    transform-origin: 100% 50%;
+    transform: rotate(90deg);
+}
+.hour-hand{
+    width: 30%;
+}
+.min-hand{
+    width: 40%;
+    height: 3px;
+    background: yellow;
+}
+.second-hand{
+    background: grey;
+    width: 45%;
+    height: 2px;
+}

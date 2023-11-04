@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 项目weui 比如网易就是wy 饿了么就是ele  cell是组件：组成页面的基本元素  组件复用  3周左右可以去咸鱼接单 
+     新的区块  BEM国际命名规范
+     Block 新的区块 cells
+     weui-cell 新的区块
+     状态 ：modifier    _access就是_状态
+    -->
+    <!-- <div class="weui-cell">
+        <a href="" class="weui-cell weui-cell_access"
+        href="javascript:;"> -->
+            <!-- 弄两个盒子  BEM命名规范
+                下划线element 
+                下面用span是不会换行的 -->
+            <!-- <span class="weui-cell__bd">
+                <span>cell standard</span>
+            </span>
+            <div class="weui-cell__ft">
+                说明文字
+            </div> -->
+            <!-- BEM 是CSS 命名规范  解决了css烦恼的问题  随意取名字大厂是不会要的
+                Block weui-cell 
+                Element weui-cell__bd
+                只有父子关系，只有一级 是两个下划线
+                modifier  状态  weui-cell_access     
+            -->
+    <!-- </a>
+    </div> -->
+
+    <!-- 视角不再是标签，也不是css，二十block 未来vue组件的概念
+    element hd bd ft __title   __desc
+    状态 _ -->
+    <div class="tb-order">
+        <div class="tb-order__hd">
+            <span class="tb__title">我的订单</span>
+            <span class="tb__more">全部 ></span>
+        </div>
+        <div class="tb-order__bd">
+            <a href="#" class="tb-order__item">
+                <span>
+                    <span class="iconfont icon-31daifukuan"></span>
+                    <span class="tb__pointer"></span>
+                </span>
+                <p class="tb__desc">待付款</p>
+            </a>
+            <a href="#" class="tb-order__item">
+                <span>
+                    <span class="iconfont icon-daifahuo"></span>
+                    <span class="tb__pointer"></span>
+                </span>
+                <p class="tb__desc">待发货</p>
+            </a>
+            <a href="#" class="tb-order__item">
+                <span>
+                    <span class="iconfont icon-31daishouhuo"></span>
+                    <span class="tb__pointer tb__pointer_on">2</span>
+                </span>
+                <p class="tb__desc">待收货</p>
+            </a>
+            <a href="#" class="tb-order__item">
+                <span>
+                    <span class="iconfont icon-xiaoxi"></span>
+                    <span class="tb__pointer tb__pointer_on">8</span>
+                </span>
+                <p class="tb__desc">待评价</p>
+            </a>
+            <a href="#" class="tb-order__item">
+                <span>
+                    <span class="iconfont icon-tuikuantuihuo"></span>
+                    <span class="tb__pointer"></span>
+                </span>
+                <p class="tb__desc">退款/售后</p>
+            </a>
+        </div>
+ </div>
+
+</body>
+</html>

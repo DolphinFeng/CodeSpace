@@ -1,0 +1,19 @@
+<script>
+    Person.prototype.name = '小黑子'
+    function Person(){
+        // new的作用
+        // var this = {
+        // __proto__: Person.prototype
+        // this隐式原型 = 构造显示原型（他是对象，也被别人创造出来的（构造函数Object（显示原型，它是null，这里如果找不到了就没了，才会undefined）创建的），这里面也有隐式原型，也是对象）
+        // }
+        // return
+
+    }
+    var p = new Person()
+    // 显示不具有属性
+    // 函数的原型，简称原型
+    // 对象的原型，不能简称 [[Prototype]]这个是谷歌的, __proto__ 其他浏览器，为了更好区分，我们就用__proto__
+    // 按道理这里是不能输出的
+    console.log(p);
+    // 对象的原型还是一个对象
+</script>

@@ -1,0 +1,46 @@
+<script>
+
+var nums = [2,7,11,15], target = 18
+
+
+// var twoSum = function(nums, target) {
+
+//     for(var i = 0;i<nums.length; i++){
+//         for(var j=i+1;j<nums.length; j++){
+//             if((nums[i] + nums[j])===target){
+//                 return [i,j]
+//             } 
+//         }
+
+//     }
+
+// }//时间复杂度为n(n-1),其实为n*n
+// //空间复杂度没有，默认为1
+
+// var twoSum = function(nums, target){
+
+//     for(var i = 0; i<nums.length; i++){
+//         var res = target - nums[i]
+//         var j = nums.indexOf(res)
+//         if(i !==j && j !== -1){
+//             return [i,j]
+//         }
+//     }
+
+// }//代码优雅了点，但是时间复杂度还是一样的，indexof也要循环
+
+var twoSum = function(nums, target){
+
+    var diffs = {}
+    for(var i = 0; i < nums.length; i++){
+        if(diffs[target - nums[i]] !== undefined){
+            return [diffs[target - nums[i]],i]
+        }
+        diffs[nums[i]]=i
+    }//空间复杂度为n，对象里面元素的个数
+
+}
+
+console.log(twoSum(nums,target))
+
+</script>
