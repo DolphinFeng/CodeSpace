@@ -13,10 +13,15 @@ function Person(){
 // p实例对象
 let p1 = new Person()
 let p2 = new Person()
+p1.name = 'can'
+console.log(p1.name)
+console.log(p2.name)
 // p2的name也不是一样的，实例对象是不一样的，雏形中say是公共的，this是私有的，雏形是共有的
 // p就是个对象，并且有一个key.value
 // 不是属性，是个调用函数，会报错
 console.log(p1);
+console.log(p1.say())
+console.log(p1.say() === p2.say())
 // console.log(p1.say());
 // 这样会报错
 // console.log(p.say() == p2.say());

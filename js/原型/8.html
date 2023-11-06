@@ -1,10 +1,11 @@
 <script>
 
     let obj = {
-        a:1
+        
     }
     // 必须接收一个参数，应该是一个对象
     let obj2 = Object.create(obj)
+    console.log(obj2)
 // 创建一个对象，隐式继承另一个对象
 // 网易：所有的对象最终都会继承自Object.prototype? null这个bug
 // typeof 最后都会转换成二进制来判断，只要不是引用类型（前三位000），null被转为二进制时，全是0，撞车了，所以也被判断成对象
@@ -12,10 +13,10 @@
 // 面试问这个：let arr = [1,2,3] log(arr) arr.push(4) 打印啥，1，2，3，先放这儿
 </script>
 
-<script>
+<!-- <script>
     // 数字，布尔，string都可以调用toString，存在prototype显示中，undefined,null没有内置函数，没有构造函数
     // 数字是绿色，字符串是黑色的在浏览器中
     let num = 123
     console.log(num.toString());
     new Number(123).toString()
-</script>
+</script> -->

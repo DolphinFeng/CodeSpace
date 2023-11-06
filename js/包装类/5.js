@@ -31,7 +31,7 @@
 // delete num.len
 // 删掉后按道理输出下面的语句还是会报错
 // console.log(num.len); 
-// 为何不报错，因为这里还会创建一次num.len new Number(4).lne
+// 为何不报错，因为这里还会创建一次num.len new Number(4).len
 // 这一过程称为隐式包装类
 
 // 文章标题：原始数据.属性，为何不报错
@@ -42,25 +42,26 @@
 // arr.length = 2
 // console.log(arr);
 
-// var str = 'abcd'
+var str = 'abcd'
 // new String('abcd').length
 // console.log(arr.length)
 
-// str.length = 2
+str.length = 2
 // new String('abcd').length = 2 然后v8发现是原始，立马删掉，能访问，但是不能操作
 // new String('abcd').length
 // V8 会这样读原始数据类型
-// console.log(str.length)
+console.log(str)
 
 // typeof 内置函数
 // 阿里面试题如下
-var str = 'abc'
-str += 1
-var test = typeof str
-if(test.length = 6){
-    test.sign = 'typeof的返回结果可能为String'
-    // new String(test).sign = ' ..... '
-    // delete 
-}
-console.log(test.sign); // new String(test).sign
+// var str = 'abc'
+// str += 1
+// var test = typeof str
+// if(test.length = 6){
+//     test.sign = 'typeof的返回结果可能为String'
+//     // new String(test).sign = ' ..... '
+//     // delete 
+// }
+// console.log(test.sign); 
+// new String(test).sign
 // 对象不存在的属性，.它，不报错，是因为会new 一个。
