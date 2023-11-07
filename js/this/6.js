@@ -3,7 +3,7 @@ function foo(){
 }
 
 var obj = {
-    a: a,
+    a: 3,
     foo: foo()
 }
 
