@@ -15,7 +15,7 @@ let date = new Date()
 // console.log(obj instanceof Object);
 // console.log(arr instanceof Array);
 // 数组也算对象，委婉噢，那我判定是不是对象咋搞？
-// console.log(arr instanceof Object);
+// console.log(arr instanceof Object); arr.__proto__ = Object.prototype 不等于，再找 arr.__proto__.__proto__ = Object.prototype 直到左边到null了也就是arr.__proto__.__proto__.__proto__
 // console.log(fn instanceof Function);
 // 函数同理
 // console.log(fn instanceof Object);

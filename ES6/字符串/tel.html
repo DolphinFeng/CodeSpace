@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 举个例子 -->
+    <!-- 希望页面有个ulli列表 -->
+    <!-- 后端提供百度热点中的信息，放在数据库（小编（运营0）负责往数据库中植入数据）前端负责样式和dom结构 -->
+    <!-- vue和react -->
+    <ul id = 'ul'>
+        <!-- <li>html</li>
+        <li>css</li>
+        <li>js</li> -->
+        <!-- li无法写死，你也不知道几个 -->
+    </ul>
+    <!-- <script>
+        // 下面是10年以前的写法
+        let arr = ['html', 'css', 'js', 'node'];
+        for(let i = 0; i<arr.length; i++){
+            // 创建一个dom结构
+            let li = document.createElement('li')
+            // 往开闭标签放值
+            li.innerHTML = arr[i]
+            document.getElementById('ul').appendChild(li)
+            // console.log(li);
+            // 现在的框架可以不用这么累
+
+        }
+    </script> -->
+
+    <script>
+        // 架构师，封装好规则让程序员使用
+        // ejs模板（%啥的），javaWeb    下面的我们称之为模板语法
+        let template = `
+            <ul>
+                <% for(let i = 0; i < arr.length; i++){ %>
+                    <li><%= arr[i] %></li>
+                     <% } %>
+            </ul>
+        `
+        // 进行封装
+        function compile(tel){
+            let evalExpr = /<%(.+?)%>/g
+            // 匹配到的元素replace替换成一个星号
+            tel = tel.replace(evalExpr,'')
+            return tel
+        }
+        console.log(compile(template));
+    </script>
+</body>
+</html>

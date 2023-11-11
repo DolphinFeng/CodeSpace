@@ -34,3 +34,8 @@ if(isType(s) === 'String'){
 
 // 面试官：Object.prototype.toString.call()   为什么可以准确判断数据类型、
 // call的原理
+// 面试官：加了call为何不一样
+// 根本原因：call
+// 
+
+// slice只能切割到显示拥有的

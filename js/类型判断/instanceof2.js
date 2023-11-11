@@ -1,3 +1,4 @@
+// 用递归
 function instanceOF(L, R){
     let left = L.__proto__ 
     let right = R.prototype

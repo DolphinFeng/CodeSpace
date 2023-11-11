@@ -24,6 +24,7 @@ var obj = {
         var bar = function(){
             console.log(this.name)
         }
+        bar()
     }
 }
 obj.show()
@@ -36,6 +37,7 @@ var obj = {
         var bar = () => {
             console.log(this.name)
         }
+        bar()
     }
 }
 obj.show()

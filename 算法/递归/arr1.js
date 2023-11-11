@@ -5,5 +5,6 @@ var arr = [1,[2, [3, 4]]]
 
 
 // 方法一,es6新增的方法  数组的扁平化，1代表降一维，降多了也没关系
+// Infinity 无限大
 var newArr = arr.flat(Infinity)
 console.log(newArr);

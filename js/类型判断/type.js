@@ -25,5 +25,5 @@ let date = new Date()
 // console.log(typeof big); bigint
 // console.log(typeof s); symbol
 // 所以7个原始只有一个null判断不出， typeof（原理：转换成二进制，前三个都是0就是引用类型）可以准确判断原始类型  在他眼里其余都是引用类型object 
-// 因此不能判断引用类型
-console.log(fn);
+// 因此能判断原始（除null）,不能判断引用类型(但是函数又可以)
+// console.log(fn);

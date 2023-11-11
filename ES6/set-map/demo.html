@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrap">
+        <button id ="btn">确认</button>
+
+    </div>
+
+    <script>
+        let wrap = document.getElementById('wrap');
+        let btn = document.getElementById('btn');//节点对象
+
+        //给btn打上标签
+        //set是强引用，浪费空间,用new WeakSet()可以回收掉浪费的空间，理论上认为它是空
+        const disabledElement = new WeakSet()
+        disabledElement.add(btn)
+        btn.addEventListener('click', () =>{
+            wrap.removeChild(btn)
+            console.log(disabledElement);
+        })
+ 
+        
+    </script>
+</body>
+</html>

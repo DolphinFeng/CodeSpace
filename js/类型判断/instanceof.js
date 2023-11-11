@@ -20,3 +20,4 @@ console.log(instanceOF([],Object))
 // true
 console.log(instanceOF(Function(),Object))
 // true
+

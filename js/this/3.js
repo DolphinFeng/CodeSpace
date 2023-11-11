@@ -1,11 +1,11 @@
-function foo(){
-    var b = 1
-    bar()
-}
-function bar(){
-    console.log(this.b);
-}   
-foo()
+// function foo(){
+//     var b = 1
+//     bar()
+// }
+// function bar(){
+//     console.log(this.b);
+// }   
+// foo()
 // undefined
 // 证明1不对
 
@@ -15,3 +15,17 @@ foo()
 // 谷歌无法展开空函数，火狐可以看
 
 // foo没有词法作用域，bar的词法又是指向foo(因为他在那里生效)，foo没有词法，所以往上找，所以最终指向全局
+
+var b = 2
+function foo(){
+    var b = 1
+    bar()
+}
+function bar(){
+    baz()
+} 
+function baz(){
+    console.log(this.b)
+}
+foo()
+// bar没有词法，定义在全局，就是指向全局,,，和foo没半毛钱关系

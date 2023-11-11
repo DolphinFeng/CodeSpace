@@ -5,4 +5,4 @@ function flaten(arr) {
     return +item
   })
 }
-console.log(flaten(arr));
+console.log(flaten(arr)); 
