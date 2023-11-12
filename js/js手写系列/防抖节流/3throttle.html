@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn"></button>
+
+    <script>
+        let btn = document.getElementById('btn');
+        function send(e){
+            console.log('提交了');
+        }
+        btn.addEventListener('click', throttle(send, 1000))
+
+        function throttle(fn, delay){
+            // prevTime是页面加载出那一刻的时间
+            let prevTime = Date.now();
+            
+            return function(){
+            
+                    // 第二次点击时间-第一次点击时间差>1000
+                    // 时间不会重复
+                    if(Date.now() - prevTime > delay){
+                        // 类数组也可以传进去，apply接收数组的
+                        // fn.call(...arguments)
+                        // 这个this是function的，然后function又指向了btn
+                        fn.apply(this,arguments)
+                        // 页面加载完鼠标挪到点击的时间大概率不会超过1s
+                        prevTime = Date.now()
+                    }
+                
+                
+                // 1s中内，fn只能执行一次，不管click多少次
+            }
+        }
+    </script>
+</body>
+</html>

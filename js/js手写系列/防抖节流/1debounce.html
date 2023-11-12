@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form表单用于提交内容,用得也没有很多 -->
+     <!-- <form onsubmit="send()">
+        label作用，为输入框服务聚焦输入框
+        <div>
+            <label for="user">账号</label>
+            <input type="text" id="user">
+        </div>
+        <div>
+            <label for="password">密码</label>
+            <input type="text" id="password">
+        </div>
+        绑定onclick点击事件
+
+    </form>  -->
+    <button id="btn">提交</button>
+    <!-- 点击提交后页面会自动100%大小，进行一个刷新，这是个问题 -->
+    <script>
+        // function send(){
+        //     console.log(123);
+        // }
+        // 点完刷新就没了
+        function send(e){
+            console.log(this,'提交完成',e);
+        }
+        let btn = document.getElementById("btn");
+        // click右边的函数不用（），点击按钮才会调用
+        // 回调函数的this一定指向你所绑定的那个dom解构，所以send中this指向了btn去了，但是这里因为被放到fn去了，所以指向了window,成了显示
+        btn.addEventListener("click", debounce(send,1000))
+            
+            // 如果手抖点了很多次会重复发送请求，你可以点了之后让它不能点，但是很low，
+            // 1s之后再调用,定时器只是推迟了执行的时间罢了
+        
+
+        function debounce(fn, delay){
+            let timer
+            // debounce中this才会指向btn
+            // let _this = this
+            // 定时器可以取一个名字的
+            return function(){
+                // 定时器是可以掐灭掉的
+                    let args = arguments
+                    if(timer) clearTimeout(timer);
+                    // 这里是定时器的调用，不是声明，所以this往外找了
+                    timer = setTimeout(() => {
+                        fn.call(this,...args)
+                        // call中如果写this得话就不需要那个定义_this了，或者直接这里改成箭头函数
+                        
+                    // 闭包中内部函数用到了遗产变量，timer一直留在里面，所以他在疯狂被赋值
+                    // 第二次先判断timer是不是有值，如果有值
+                    },delay)
+                    // fn就是send
+                    // 规定时间内点了第二次就消掉之前点的，判断之前是否还有函数的执行
+                    
+                
+                // console.log('hello')
+            }
+            // 返回一个函数体，形成一个闭包
+        }
+    </script>
+</body>
+</html>
