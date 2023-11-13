@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 异步：同一时间段内，发生多件事情 -->
+    <!-- 每门语言都有异步的概念 -->
+    <script>
+        function a(){
+            setTimeout(function(){
+                console.log('菜做完了');
+            },1000)
+        }
+
+        a()
+
+        function b(){
+            console.log('我在看B站')
+        }
+        b()
+    </script>
+</body>
+</html>

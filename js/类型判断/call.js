@@ -57,7 +57,7 @@ Function.prototype.myCall = function(context){
     // 这里防止foo会有个返回值
 }
 // this就是foo
-foo.myCall(obj,1,2)
+foo.myCall(obj,3,2)
 console.log(obj)
 
 // 所有函数都有个关键字arguments 所有的参数的统称，多个形参的时候，是个类数组，本质是个对象

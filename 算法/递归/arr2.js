@@ -26,3 +26,17 @@ function flatten(arr) {
     return result
 }
 console.log(flatten(arr));
+
+// 扁平化n次
+// var res = []
+// const flattening = (arr, n) => {
+//     for(var i = 0; i<arr.length; i++){
+//         if(Array.isArray(arr[i]) && n > 0){
+//             nextArr = flattening(arr[i], n - 1)
+//         }else{
+//         res.push(arr[i])
+//         }
+//     }   
+// }
+// flattening(arr,n)
+// return res
