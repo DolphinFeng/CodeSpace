@@ -1,0 +1,15 @@
+<!--pages/vehicle/cars.wxml-->
+<view class="hero">
+  Dolphin
+  <button bindtap="doLogin">按钮</button>
+<view class="car">
+  <view class="hd">
+    <text>{{info.name}}</text>
+  </view>
+  <view class="bd">
+    <text>{{info.model}}</text>
+    <text>{{info.price}}</text>
+    <image src="{{info.pic}}" mode=""/>
+  </view>
+</view>
+</view>

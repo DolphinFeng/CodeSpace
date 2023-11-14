@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">提交</button>
+    <script>
+        function send(e){
+            console.log(this,'提交完成',e);
+        }
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", debounce(send,1000))
+
+        function debounce(fn, delay){
+            let timer
+            return function(){
+                    let args = arguments
+                    if(timer) clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        fn.call(this,...args)
+                    },delay)
+            }
+        }
+    </script>
+</body>
+</html>

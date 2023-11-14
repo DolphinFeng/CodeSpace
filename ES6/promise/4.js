@@ -30,6 +30,7 @@ function baby(){
     },500)
 }
 
+
 // 相当于Promise实例对象.then  then也接受一个回调函数
 // xq异步更狠，两个异步函数
 // xq().then((res) => {
