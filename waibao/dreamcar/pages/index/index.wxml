@@ -21,10 +21,36 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
-<swiper 
+<!-- <swiper 
   indicator-dots="{{true}}"
   class="section hero white"
 >
   <swiper-item>1</swiper-item>
   <swiper-item>2</swiper-item>
+</swiper> -->
+
+<!-- <view>
+  <text>{{slides[0].description}}</text>
+  <text>{{user.hobby}}</text>
+</view> -->
+
+<swiper
+  indicator-dots="{{true}}"
+  class="section hero white"
+>
+<!-- 循环输出 -->
+  <block wx:for="{{slides}}" wx:key="id">
+    <swiper-item>
+      <image src="{{item.image}}"/>
+      <view class="context centered">
+        <view class="sub-header">{{item.sub_header}}</view>
+        <view class="header">{{item.header}}</view>
+        <view class="description">{{item.description}}</view>
+        <view class="action">
+        <button class="button">预约试驾</button>
+        <button class="button primary">了解更多</button>
+      </view>
+      </view>
+    </swiper-item>
+  </block>
 </swiper>

@@ -99,7 +99,7 @@ Barrage.prototype.init = function(){
 
 // Barrage 修饰一条弹幕 为箭头函数那里服务 (实例对象，this对象)
 function Barrage(obj, context){
-    console.log(context)
+    // console.log(context)
     // 新弹幕的内容
     this.value = obj.value
     this.time = obj.time
@@ -132,13 +132,14 @@ CanvasBarrage.prototype.renderBarrages = function(){
     let time = this.video.currentTime
     // 遍历所有的弹幕
     this.barrages.forEach(function(barrage){
-        // 这属性没有就是false 这个操作就是为了防止放过了的弹幕不需要初始化
-        if(!barrage.isInit){
-            barrage.init()
-            barrage.isInit = true
-        }
+        
         // 出屏之外之后就不用再操作了
         if(time >= barrage.time && !barrage.flag){
+            // 这属性没有就是false 这个操作就是为了防止放过了的弹幕不需要初始化
+            if(!barrage.isInit){
+                barrage.init()
+                barrage.isInit = true
+            }
             // 控制弹幕左移，出了画布之外还在移动？
             barrage.x -= barrage.speed
             // rednerEach相当于ctx.fillstyle
@@ -201,24 +202,7 @@ video.addEventListener('play',function(){
 
 // 发布订阅 很难
 
-// 监听发送按钮
-// $btn.onclick = function(){
-//     console.log();
-// }
-// 这两种写法有区别，js事件流中，简单来看没有区别
-// enter或者点击发送都可以发送
-$btn.addEventListener('click', send)
-// 这个写法函数不用小括号
-// keyup键盘弹起的时候
-$text.addEventListener('keyup',function(e){
-    // 所有的事件都有对应的参数
-    // 可以看到keycode
-    console.log(e);
-    if(e.keycode === 13){
-        send()
-    }
-    
-})
+
 
 function send(){
     // 读取文本内容
@@ -253,4 +237,23 @@ function send(){
 // function b(){
 //     console.log(num)
 // }
+
 // a() 肯定是不行的
+// 监听发送按钮
+// $btn.onclick = function(){
+//     console.log();
+// }
+// 这两种写法有区别，js事件流中，简单来看没有区别
+// enter或者点击发送都可以发送
+$btn.addEventListener('click', send)
+// 这个写法函数不用小括号
+// keyup键盘弹起的时候
+$text.addEventListener('keyup',function(e){
+    // 所有的事件都有对应的参数
+    // 可以看到keycode
+    console.log(e);
+    if(e.keycode === 13){
+        send()
+    }
+    
+})

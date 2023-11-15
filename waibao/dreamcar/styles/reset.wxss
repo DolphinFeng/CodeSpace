@@ -1,0 +1,11 @@
+/* 这个样式都可以拿去套 */
+image {
+  display: block;
+  width: 100%;
+}
+
+page {
+  line-height: 1.5;
+  /* rpx小程序专属相对单位 */
+  font-size: 32rpx;
+}

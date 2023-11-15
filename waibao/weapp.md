@@ -56,5 +56,20 @@
 
 - 优质项目开发思路
     - wxml有着html不具备的组件，比如image非img,swiper快速实现幻灯片
-        直接看文档
+        直接看文档https://www.w3cschool.cn/weixinapp/weixinapp-swiper.html
         一个类名负责一件事，方便复用
+    - css开发将我们的样式按照原子功能，进行封装，有利于未来项目的复用
+        - 当你发现你在重复写样式的时候
+            white hero section
+            一行或几行css 形成了一个功能模块
+            .sub-header {
+                font-size:;
+                line-height:;
+                font-family:;
+            } 
+        - 慢慢积累经验
+
+
+        11.15
+        App({})中{}是配置
+        App -> Page的桥梁

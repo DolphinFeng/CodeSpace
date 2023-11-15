@@ -8,7 +8,18 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }  */
-.hero{
+/* .hero{
   background: green;
   color: white;
+} */
+/* 这里导入是为了模块划分 */
+@import "styles/reset.wxss";
+@import "styles/hero.wxss";
+@import "styles/action.wxss";
+@import "styles/button.wxss";
+page {
+  background: white;
+}
+.section {
+  height: 100vh;
 }

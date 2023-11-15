@@ -1,0 +1,15 @@
+.button {
+  display: inline-block;
+  margin: 8rpx;
+  background: #e0e1e2;
+  color: rgba(0,0,0,0.6);
+  font-weight: bold;
+  border-radius: 1px;
+  font-size: 32rpx;
+  transition: .3s all;
+}
+
+.button.primary {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.9);
+}

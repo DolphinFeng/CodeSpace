@@ -18,14 +18,14 @@
   margin-top: 200px;
 } */
 /* 单屏类名section */
-.section {
+/* .section {
   height: 100vh;
-}
+} */
 /* hero 风格主题类名 */
-.hero {
+/* .hero {
   
-}
+} */
 /* white负责色系 */
-.white {
+/* .white {
   background: white;
-}
+} */
