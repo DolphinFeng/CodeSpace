@@ -51,21 +51,35 @@
 //     }
 //  })
 //  console.log(result)
-var nums = [3  , 2, 1]
-if(nums.length < 2){
-    return nums[0]
-}
-if(nums.length < 3){
-    if(nums[0] > nums[1]){
-        return nums[0]
-    }else{
-        return nums[1]
-    }
-}
-console.log(nums)
-var newNums = new Set(nums)
-var result = Array.from(newNums)
-console.log(newNums)
+// var nums = [3  , 2, 1]
+// if(nums.length < 2){
+//     return nums[0]
+// }
+// if(nums.length < 3){
+//     if(nums[0] > nums[1]){
+//         return nums[0]
+//     }else{
+//         return nums[1]
+//     }
+// }
+// console.log(nums)
+// var newNums = new Set(nums)
+// var result = Array.from(newNums)
+// console.log(newNums)
 // newNums.sort(function(a,b){
 //     return b - a
 // })
+
+var nums = [1,2,3,4], k = 5
+var diffs = {}
+var res = []
+for(var i = 0; i<nums.length; i++){
+    if(diffs[k - nums[i]] !== undefined){
+        res = res.concat([diffs[k - nums[i]],i])
+        nums.splice(diffs[k- nums[i]],1)
+        nums.splice(i,1)
+    }
+    diffs[nums[i]] = i
+}
+console.log(res);
+console.log(res.length / 2);
