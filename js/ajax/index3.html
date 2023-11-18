@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul id='ul'>
+    </ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // mdn前端字典
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click',() => {
+            // https://developer.mozilla.org/zh-CN/docs/Web/API/fetch  fetch（里面封装了promise）用法
+            fetch('http://u.ronki.moe:3000/top/song?type=8')
+            .then(data => data.json())
+                // data封装好了json才可以.json  普通对象没有 ，作用：把车厢资源格式化
+                // 上一个data.json()return的resolve值
+            .then(res => {
+                console.log(res);
+                    res.data.forEach( (song) => {
+                    console.log(song.name);
+                    let li = document.createElement('li')
+                    li.innerHTML = song.name
+                    document.getElementById('ul').appendChild(li)
+                 })
+            
+                })
+            // axils由禹锡vue的作者
+        
+        })
+
+    </script>
+</body>
+</html>

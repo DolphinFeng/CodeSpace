@@ -38,3 +38,4 @@ for(let key in data){
         console.log(key);
     }
 }
+// 对象还有很多方法去探究,名字越长越牛

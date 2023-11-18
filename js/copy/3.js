@@ -42,3 +42,4 @@ obj.age = 20
 // newObj.age是原始类型,深!不受影响
 obj.like.type = 'swimming'
 console.log(newObj);
+// 依旧是乞丐版,必须考虑到所有引用类型,这样其实也够了,也就是多加几个if判断

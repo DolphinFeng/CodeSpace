@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul id='ul'>
+    </ul>
+    <script>
+        const btn = document.getElementById('btn')
+        // 获取btn dom结构
+        // 不涉及this的时候，箭头和普通一样的
+        // 多么希望朝着网易云的服务器后端代码发一个http请求，服务器要有个安全策略，不可能谁都可以请求，百度前端工程师的代码才可以
+        // 比如墙，国内的地址都可以访问，有个白名单。搜网易云api（接口）,（https://neteasecloudmusicapi.js.org/#/?id=neteasecloudmusicapi）node版本的，进行爬数据，一种爬前端，另一种去服务器，服务器爬是违法的
+        // 网易云api是被允许的，都是非vip的东西
+        // jsonVue谷歌插件，让页面数据看的更舒服
+        btn.addEventListener("click", () => {
+        // 早期 (很麻烦，请求太多咋搞，可以包装一个函数，jquery中有个就叫ajax的方法)请求 open做请求的准备工作 参数：get,post,delete,等等get去要东西，第二个参数朝哪里要,
+        // 第三个参数布尔，控制请求异步（需要耗时的代码）还是同步，耗时一定是异步，可以强行同步，阻塞后面代码，true异步，false同步，第四个，第五个参数用不上
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://u.ronki.moe:3000/top/song?type=8', true)
+        // 相应写在前面，用来监听后端代码有没有回来
+        xhr.onreadystatechange = () => {
+            // enreadystatechange有个等候过程，否则就执行send了 0-5参数，0刚创建xhr, 1open准备好了，2已经send了，3已经接收到响应体了，4数据解析完成。
+            // 数据传输都是数据包，需要进行解析
+            // 404http状态码（面试：从2开始聊http状态码）   5开头是服务器端报错。500就是后端有问题，4开头是前端的问题。接口出错很正常，提高双方沟通效率，联调
+    
+            if(xhr.readyState === 4 && xhr.status === 200){
+                // Access to XMLHttpRequest跨域
+                let result = JSON.parse(xhr.responseText);
+                // result.data是数组，song是每一项，song.name歌曲名
+                // item index arr  参数一个可以省（） 不换行可以省{}
+                result.data.forEach( (song) => {
+                    console.log(song.name);
+                    // 创建一个li，然后往里面放
+                    let li = document.createElement('li')
+                    li.innerHTML = song.name
+                    // 添加子容器
+                    document.getElementById('ul').appendChild(li)
+                })
+            }
+        }
+        // 促使浏览器发送http请求
+        xhr.send()
+        // 后端反馈回来，响应
+        })
+        // 返回来的是json字符串
+
+    </script>
+</body>
+</html>
