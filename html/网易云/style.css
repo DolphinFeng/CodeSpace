@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.login__hd{
+    text-align: center;
+    padding: 0 30px;
+    height: 60px;
+    line-height: 60px;
+}
+.back{
+    float: left;
+    height: 100%;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__bd{
+    padding: 0 60px;
+}
+
+input[type="text"]{
+    height: 50px;
+}
+
+#ipt1{
+    padding: 10px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    margin-top: 20px;
+    background-color: rgb(224, 222, 222);
+    border-radius: 8px;
+}
+#ipt2{
+    padding: 10px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    margin-top: 20px;
+    background-color: rgb(224, 222, 222);
+    border-radius: 8px;
+}
+#btn{
+    padding: 10px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    margin-top: 20px;
+    background-color: rgb(253, 174, 174);
+    border-radius: 16px;
+}
+.login__ft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+.alink{
+    text-decoration: none;
+}
+
+#window{
+    display: none;;
+    /* 弹出框固定定位最好 */
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: rgb(72, 66, 66);
+    border-radius: 16px;
+    margin: 0 auto ;
+    margin-bottom:50%;
+}

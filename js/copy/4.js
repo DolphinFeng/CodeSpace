@@ -15,10 +15,10 @@ let obj = {
     // f: 123n 这个方法读不懂bigint,会报错
 }
 // parse字符串变对象,stringify把对象变字符串,成了深拷贝
+// console.log(obj)
+// console.log(JSON.stringify(obj));
 
-console.log(JSON.stringify(obj));
-
-obj.like.type = 'running'
+// obj.like.type = 'running'
 obj.c = obj.d
 obj.d.m = obj.c
 console.log(obj)

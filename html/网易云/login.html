@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4336273_d1yjda0hkaj.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login__hd">
+            <div class="back"><i class="iconfont icon-fanhui"></i></div>
+            <div class="title">
+                <i class="iconfont icon-a-Property1wangyiyunyinle"></i>
+                <h2>网易云音乐</h2>
+            </div>
+        </div>
+
+        <div class="login__bd">
+            <div class="input">
+                <input id="ipt1" type="text" placeholder="登录邮箱">
+                <input id="ipt2" type="text" placeholder="密码">
+                <button id="btn">登录</button>
+            </div>
+        </div>
+        <div class="login__ft"><a href="" class="alink">重设密码</a></div>
+    </div>
+    <div id="window">
+        
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        const ipt1 = document.getElementById("ipt1");
+        const ipt2 = document.getElementById("ipt2");
+        const btn = document.getElementById('btn');
+        const window1 = document.getElementById('window');
+        btn.addEventListener('click',() => {
+            fetch(`http://192.168.31.45:3000/login?username=${ipt1.value}&password=${ipt2.value}`)
+            .then(data => data.json())
+            .then(res => {
+                console.log(res);
+                    res.data.forEach( (song) => {
+                    console.log(song.message);
+                    let li = document.createElement('li')
+                    li.innerHTML = song.message
+                    document.getElementById('ul').appendChild(li)
+                    window1.style.display = 'block'
+                    setTimeout(() => window1.style.display = 'none', 2000)
+                 })
+                })
+        })
+    </script>
+</body>
+</html>
