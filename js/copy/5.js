@@ -16,7 +16,6 @@ function deepCopy(obj){
                 // 引用类型 递归就可以创建一个新的objCopy
                 // 右边就是like这个对象
                 objCopy[key] = deepCopy(obj[key])
-                objCopy[key] = child
             }else{
                 // 原始
             objCopy[key] = obj[key] 

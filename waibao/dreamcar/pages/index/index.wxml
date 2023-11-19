@@ -33,7 +33,7 @@
   <text>{{slides[0].description}}</text>
   <text>{{user.hobby}}</text>
 </view> -->
-
+<!-- 幻灯片 -->
 <swiper
   indicator-dots="{{true}}"
   class="section hero white"
@@ -54,3 +54,32 @@
     </swiper-item>
   </block>
 </swiper>
+<view class="cards">
+  <view
+   class="card" 
+   wx:for="{{ entities }}"
+   wx:key="id"
+  >
+  <!-- a标签 ./当前目录 相对路径  /绝对路径 项目根目录-->
+    <navigator url="/pages/vehicles/show?id={{ item.id }}">
+      <image src="{{ item.image }}"
+      mode="aspectFill"/>
+      <view class="content">
+        <view class="header">
+          {{ item.header }}
+          <view class="sub-header">
+            {{ item.sub-header }}
+          </view>
+        </view>
+        <view class="description">
+          {{ item.description }}
+        </view>
+        <view class="meta">
+          {{ item.meta.price }}
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+

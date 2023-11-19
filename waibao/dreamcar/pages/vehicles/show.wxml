@@ -1,0 +1,17 @@
+<!--pages/vehicles/show.wxml-->
+<view class="section">
+  <view class="cover">
+    <image src="{{ entity.image }}" mode=""/>
+    <view class="content">
+      <view class="header">
+        {{ entity.header}}
+        <view class="sub_header">
+          {{ entity.sub_header}}
+        </view>
+      </view>
+      <view class="meta">
+        {{ entity.meta.price }}
+      </view>
+    </view>
+  </view>
+</view>

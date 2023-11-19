@@ -1,0 +1,31 @@
+/* 移动端常用的卡片样式 */
+.cards {
+  padding: 32rpx;
+}
+.card {
+  background-color:#fff;
+  margin-bottom: 32rpx;
+  transition: .5s all;
+}
+.card image {
+  position: relative;
+}
+.card .content {
+  padding: 48rpx 48rpx 64rpx;
+}
+.card .header {
+  font-size: 48rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  margin-bottom: 48rpx;
+}
+.card .sub-header {
+  font-size: 32rpx;
+  letter-spacing: 6rpx;
+  text-transform: uppercase;
+}
+.card .description, .card .meta {
+  margin-bottom: 16rpx;
+  color: rgba(0,0,0,0.85);
+  font-size: 32rpx;
+}

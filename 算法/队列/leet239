@@ -1,0 +1,21 @@
+let arr = [1,3,-1,-3,5,3,6,7], k = 3
+var maxSlidingWindow = function(nums, k) {
+    let left = 0, right = k - 1, res = []
+    while(right < nums.length){
+        const max = calMax(left, right)
+        res.push(max)
+        left ++
+        right ++
+        // 代码从大往下写
+    }
+    function calMax(x, y) {
+        let maxNum = -Infinity
+        for(let i = x; i<=y; i++){
+            if(nums[i] > maxNum){
+                maxNum = nums[i]
+            }
+        }
+        return maxNum
+    }
+    // 事件复杂度为 n * k
+}
