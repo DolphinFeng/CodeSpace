@@ -2,7 +2,9 @@
 const { log } = require('console')
 const https = require('https')
 const cheerio = require('cheerio')
+// https://www.npmjs.com/package/cheerio
 const fs = require('fs')
+
 // 有些网站不能爬，传统页面可以爬
 https.get('https://movie.douban.com/top250', (res) => {
     let html = ''
@@ -46,4 +48,4 @@ https.get('https://movie.douban.com/top250', (res) => {
     })  
     
 })
-// res是所有的内容,
+// res是所有的内容

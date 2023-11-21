@@ -28,3 +28,11 @@
 // const glob = require('glob')导入
 
 // 实在下不下来  npm i yarn -g  这个指令   yarn是另一个包管理工具
+// yarn and xxx 这个指令也可以
+// node modelo 可以删掉
+// npm i 又可以下回来
+
+// 上传git时，忽略node_modules在旁边新建一个.gitignore 然后 输入/node_modules/
+ 
+// 爬top 250电影数据
+// spider 继承终端 npm init -y 

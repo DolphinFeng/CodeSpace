@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage前端</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <h2>Local Tapas</h2>
+        <p></p>
+        <ul class="plates">
+            <li>Loading Tapas...</li>
+        </ul>
+        <form class="add-items">
+            <input type="text" name="item" placeholder="Item Name">
+            <input type="submit" value="+ Add Item">
+        </form>
+    </div>
+
+    <script>
+        // window.localStorage.setItem('name', 'batman');
+        // 存在应用中key value
+        const addItems = document.querySelector('.add-items');
+        const itemsList = document.querySelector('.plates')
+        const items = localStorage.getItem('items') || []
+        function addItem(e) {
+            // 阻止浏览器表单默认行为
+            e.preventDefault()
+            // 组织todos结构
+            const item = {
+                text: this.querySelector('[name=item]').value,
+                done: false
+            }
+            // console.log(item);
+            items.push(item)
+            // DOM更新的业务逻辑，重新渲染
+            populateList(items, itemsList)
+            this.reset()
+            localStorage.setItem('items', JSON.stringify(items))
+        }
+
+        function populateList(plates=[], platesList) {
+            platesList.innerHTML = plates.map((plate, i) => {
+                return`
+                    <li>
+                        <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}>
+                        <label for="item${i}">${plate.text}</label>   
+                    </li>
+                `
+            })
+        }
+
+        function ToggleDone(e) {
+            console.log(e.target);
+            if(e.target.matches('input')){
+                const el = e.target
+                const index = el.dataset.index
+                items[index].done = !item[index].done
+                localStorage.setItem('items', JSON.stringify(items))
+                populateList(item, itemsList)
+            }
+        }
+
+        addItems.addEventListener('submit', addItem)
+        // 事件委托
+        itemsList.addEventListener('click', ToggleDone)
+        window.onload = function () {
+            populateList(items, itemsList)
+        }
+    </script>
+</body>
+</html>

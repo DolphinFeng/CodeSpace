@@ -27,3 +27,5 @@ if(computer === player){
     }else{
         console.log('你输了')
     }
+
+// git add . 就是给git输入一个指令

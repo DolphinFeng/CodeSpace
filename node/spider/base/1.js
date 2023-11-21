@@ -7,7 +7,7 @@
 // setTimeout(() => console.log('setTimeout'),1000)
 // console.log(setImmediate)  用的少
 // console.log(setInterval);
-// console.log(requestAnimationFrame); // 时间根据电脑屏幕的刷新率决定，60hz，人肉眼16.7毫秒以内的动是不到的，1s内动60次，上次弹幕见过，node没有，但是浏览器有
+// console.log(requestAnimationFrame); // 时间根据电脑屏幕的刷新率决定，60hz，人肉眼16.7毫秒以内的动是不到的，1s内动60次，上次弹幕见过，node没有，但是浏览器有，因为刷新率
 
 
 // dir - directory目录
@@ -18,4 +18,5 @@
 
 // 进程：任务管理器有很多进程，运行一个软件就相当于一个进程
 // node可以跑很多进程
+// 18.18.2  18到20没有很大的更新
 console.log(process);
