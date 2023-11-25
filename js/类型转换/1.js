@@ -51,6 +51,10 @@
 // 原始转对象
 // console.log(Object('hello')); 字符串对象
 // console.log(Number(123)); 数字
-console.log(Object(undefined));
+// console.log(Object(undefined));
+// 这样做没有意义，new Number new String的效果一样
+
+
+
 
 

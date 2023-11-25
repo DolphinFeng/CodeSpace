@@ -25,3 +25,14 @@
         小白用户犯错能不能避免
         required
         placeholder=""
+
+- JSON.parse + JSON.stringify
+    localStorage不能存对象， toString,
+
+- label + input + 事件冒泡 用户体验优化
+    label for = input 扩大操作范围， 特别是移动端
+    事件监听只能在一个元素上，所以列表一定要做事件委托
+    我用冒泡机制 只监听父元素上的事件
+
+- populateList 封装
+    const items = JSON.parse() || []

@@ -93,3 +93,8 @@ async function foo() {
     await C()
 }
 foo()
+// async可以单独出现，await必须有async  
+
+// 面试：手写async 和 await的源码
+
+

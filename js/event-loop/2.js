@@ -12,8 +12,8 @@ new Promise((resolve, reject) =>{
     resolve()
 })
 .then(() => {
-    console.log('then1')
-})//-------------------2
+    console.log('then1')//-------------------2
+})
 .then(() => (console.log('then2')))//-------------------3
 
 
@@ -29,3 +29,10 @@ new Promise((resolve, reject) =>{
 // 宏任务：执行4
 
 // 所以输出结果
+// start
+// Promise
+// then1
+// then2
+// setTimeout
+// end
+// inner

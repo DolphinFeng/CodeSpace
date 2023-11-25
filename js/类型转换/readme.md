@@ -39,3 +39,6 @@ ToPrimitive(obj, String)     String({})
 # 二元运算符 +
 lprim + rprim === ToPrimitive(v1) + ToPrimitive(v2)
 1. 当 + 两边有一个是字符串，那么都转为字符串后进行拼接
+2. 否则，转到number进行计算
+
+二者本质都往number上转，前提没有字符串

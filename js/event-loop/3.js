@@ -1,27 +1,27 @@
 // 面试官：下面输出是什么-----这种东西常考
-console.log('script start')  //       1--------------1
+console.log('script start')  //       1--------------1  a
 async function async1() { // 相当于promise  同步
     await async2() // 异步微任务
-    console.log('async1 end') // 也变成了微任务   5----------5
+    console.log('async1 end') // 也变成了微任务   5----------5  b
 }
-async function async2() { // 4-------------2
+async function async2() { // 4-------------2  c
     console.log('async2 end')
 }
 async1()
 setTimeout(function () { // 异步宏任务
-    console.log('setTimeout')  // 8---------8
+    console.log('setTimeout')  // 8---------8  d
 }, 0)
 new Promise(resolve => {
-    console.log('Promise') // 2-------------3
+    console.log('Promise') // 2-------------3  e
     resolve()
 })
     .then(function () {
-        console.log('promise1') // 6------------6
+        console.log('promise1') // 6------------6    f
     })
     .then(function () {
-        console.log('promise2')  // 7------------7
+        console.log('promise2')  // 7------------7    g
     })
-console.log('script end')// 3-----------4
+console.log('script end')// 3-----------4     h
 // async 
 
 // await

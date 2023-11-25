@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="todos"></ul>
+    <script>
+        // fetch('https://zc15la.laf.run/get-list')
+        // .then(data => data.json())
+        // .then(data => {
+        //     console.log(data)
+        // })
+        async function fetchData() {
+                try {
+                    const response = await fetch('https://zc15la.laf.run/get-list');
+                    // { data }解构
+                    const { data } = await response.json();
+                    console.log(data);
+                    document.querySelector('#todos').innerHTML = 
+                        data.map( todo => `
+                            <li>${todo.txt}</li>
+                        `)
+                        .join('')
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            fetchData();
+    </script>
+</body>
+</html>

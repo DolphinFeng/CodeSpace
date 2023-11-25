@@ -28,8 +28,8 @@
 // 2. Return ToString(primValue).
 // let a = {}
 // console.log(a.toString()); 管用
-let b = new Number(123)
-console.log(b.toString());
+// let b = new Number(123)
+// console.log(b.toString()); 管用
 
 // 转数字
 // valueOf 和ToNumber 不一样

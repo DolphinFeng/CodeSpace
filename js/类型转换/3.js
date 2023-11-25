@@ -24,4 +24,10 @@
 // if(1 == '1'){
 //     console.log('ok');
 // }
-console.log(NaN == NaN);
+// console.log(NaN == NaN); false
+// == 的最终归宿为number
+// 数字比较比布尔比较更快，数字对计算机来说读得更快
+// 有个对象，那个对象1 == {}   1 == '[object object]'   1 == NaN
+// {} == {} 就是false ，不用走隐式类型转换，地址不同
+// console.log(false == []); 0 == ''  0 == 0
+
