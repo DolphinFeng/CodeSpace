@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        你好
+    </div>
+    <!-- // 这段js用于表达上面html
+    // 会被当成模板，js中写html -->
+    <script type="x-template" id="template">
+
+        <div>
+            <h1>{{message}}</h1>
+        </div>
+
+    </script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        document.getElementById("template")
+        // console.log(template)
+        // 把原本html内容顶贴掉了，不是增加，而是顶替掉；好处：往html塞值方便点，依旧可以取值，{{}}挖坑
+        Vue.createApp({
+            // key是固定的
+            template: '#template',
+            // data不需要调用就可以调用，vue说的
+            data: function() {
+                return {
+                    // 这个message可以乱取名字
+                    // 加载的时候会闪一下，先显示html的，因为从上往下加载
+                    message: '哈哈哈哈哈哈哈哈哈'
+                }
+            }
+        }).mount('#app')
+        // 把template的内容挂在app中
+
+        // 3.html更优雅
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <h2>Hello world</h2> -->
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script>
+        // js原始写法：获取dom结构。html搬到js里面,方便往页面里面放数据
+        let app = document.getElementById("app")
+        let h2 = document.createAttribute("h2")
+        h2.innerHTML = "Hello world2"
+        app.appendChild(h2)
+    </script> -->
+
+    <script>
+        // vue写法
+        
+        const msg = '你好'
+        const tel = {
+            // template: '<h2>Hello world3</h2>'
+            // 下面是老版本写法，新写法2.html
+            template: `<h1>${msg}</h1>`
+        }
+        // Vue是个构造函数，来自上面连接导入，可以不用new（老版本写法） ，用createApp(tel) 
+        // Vue创建一个项目,app就是一个Vue
+        const app = Vue.createApp(tel)
+        // mount就是Vue的方法，叫做挂载，不用获取人家的dom结
+        // id不可以重复，class可以重复，所以不用考虑多个mount
+        app.mount('#app')
+
+    </script>
+</body>
+</html>

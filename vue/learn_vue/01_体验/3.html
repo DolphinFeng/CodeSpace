@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 随便写一个标签 -->
+    <!-- <abc>
+        123
+    </abc> -->
+    <!-- html5中template就是一个标签，文档碎片，没有意义的标签，就是不展示 -->
+    <template id="tel">
+        <!-- 之前是黑色的 -->
+        <div>
+            <h2>你好  {{message}}</h2>
+            <h2>{{count}}</h2>
+            <button @click="add">+1</button>
+            <button @click="minus">-1</button>
+        </div>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            // template叫模板
+            template: '#tel',
+            // data叫做数据源,放key,value
+            data: function () {
+                return {
+                    message: '小黑子',
+                    count: 1
+                }
+            },
+            // methods是函数源
+            methods: {
+                // 如果是箭头函数，this就是代表全局
+                add: function() {
+                    // this代表vue的实例对象  本来应该是this.data.count，刘禹锡热心肠，给你干掉了
+                    this.count ++
+                    console.log(this);
+                    // vue只变div的dom结构中的数据源data，响应式数据；按道理html是静态的的，不会再变了，减少开发负担
+                },
+                // 还可以这样写
+                minus() {
+                    this.count --
+                }
+            }
+        }).mount('#app')
+
+        // 以后开发项目也不会这样，但是这样已经够了
+    </script>
+</body>
+</html>

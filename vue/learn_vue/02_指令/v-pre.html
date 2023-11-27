@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 其实template就是字符串，然后最终被vue转成html代码，这个过程称之为编译，然后挂载在html上进行渲染，
+        如果代码量很多，编译很久就可以看到效果，没有编译完之前不会出现 */
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <!-- 告诉vue这里不需要识别成字符串，拼接，当你页面就是需要两个花括号就要用这个东西 -->
+        <h2 v-pre>{{ message }}</h2>
+        <h2 v-cloak>{{ message }}</h2>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data(){
+                return {
+                    message: '小黑子'
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
