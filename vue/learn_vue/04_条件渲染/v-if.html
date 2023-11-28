@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- v-if和v-else得是兄弟结构下，不能写出去了，两个必须在一起，v-if成立了，v-else就一定不成立 -->
+    <template id="my-app">
+        <h2 v-if="count == 1">hello world</h2>
+        <h2 v-else-if="count == 2">こんにちは</h2>
+        <h2 v-else>你好 世界</h2>
+        <button @click="change">切换</button>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data(){
+                // 直接消失了，dom结构没了，而不是把人家隐身了（display: none）
+                return {
+                    isShow: true,
+                    count: 0
+                }
+            },
+            methods: {
+                change(){
+                    // this.isShow = !this.isShow
+                    this.count ++
+                    if(this.count > 2){
+                        this.count = 0
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

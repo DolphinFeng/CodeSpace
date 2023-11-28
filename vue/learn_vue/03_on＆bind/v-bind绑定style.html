@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- vue语法，所有横档都可以驼峰 font-size可以写成fontSize   -->
+    <!-- 动态绑定样式也有很多方法 -->
+    <template id="my-app">
+
+        <!-- <div :style="{color: fontColor, fontSize: fontSize}">海豚</div> -->
+        <!-- <div :style="styleObj">蔡徐坤</div> -->
+        <!-- 用数组可以多写几个styleObj 样式都生效了-->
+        <div :style="[styleObj, styleObj2]">蔡徐坤</div>
+
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data(){
+                return {
+                    fontColor: 'blue',
+                    fontSize: '50px',
+                    styleObj: {
+                        color: 'green',
+                        fontWeight: 'bold'
+                    },
+                    styleObj2: {
+                        fontSize: '40px',
+                        background: 'red'
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

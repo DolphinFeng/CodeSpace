@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* 其实template就是字符串，然后最终被vue转成html代码，这个过程称之为编译，然后挂载在html上进行渲染，
-        如果代码量很多，编译很久就可以看到效果，没有编译完之前不会出现 */
+        /* 其实template就是字符串，然后最终被vue转成dom结构，还要读取变量值，这个过程称之为编译，然后挂载在html上进行渲染，
+        如果代码量很多，编译很久就可以看到效果，没有编译完之前不会出现，让打开页面时某个页面没有东西，但是人家的dom结构生成了,值没有出现 */
         [v-cloak]{
             display: none;
         }

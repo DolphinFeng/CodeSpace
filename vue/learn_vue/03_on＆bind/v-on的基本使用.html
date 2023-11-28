@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- v-bind只能帮顶属性，v-on只能绑定事件 -->
+    <template id="my-app">
+        <!-- <button v-on:click="handle">按钮</button> -->
+        
+        <!-- <button v-on:click="add">{{count}}</button> -->
+
+        <!-- <div v-on:mouseenter='enter' style="width: 100px; height: 100px; border: 1px solid black;"></div> -->
+
+        <!-- <div @click="handle" @mouseenter="enter" style="width: 100px; height: 100px; border: 1px solid black"></div> -->
+        <!-- 也可以下面这种写法，不过用的少，上面得用的多 -->
+        <!-- <div @="{click: handle, mouseenter: enter}" style="width: 100px; height: 100px; border: 1px solid black"></div> -->
+        <!-- 写个函数名就可以调用了，需要传入参数时一般用调用的形式，时间参数也有要用时，就要$event，否则被覆盖，就是name,age,undefined -->
+        <button @click="handleClick($event, 'ikun', 18)">按钮</button>
+    </template>
+    <!-- mouseenter就是鼠标移入事件 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            // 数据源的值是响应式的，只要变了，页面一定更新
+            data(){
+                return {
+                    count: 0
+                }
+            },
+            methods: {
+                handle(){
+                    console.log('点了');
+                },
+                add(){
+                    this.count ++
+                },
+                enter(){
+                    console.log('鼠标移入')
+                },
+                handleClick(e, name, age){
+                    console.log(e, name, age)
+
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

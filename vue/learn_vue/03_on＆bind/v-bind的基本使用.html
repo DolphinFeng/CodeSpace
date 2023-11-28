@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- template本质其实就是字符串模板，浏览器读不懂。vue会编译后可以读懂 -->
+    <template id="my-app">
+        <!-- <h2 v-text="msg"></h2> -->
+        <!-- 前端工程师不能决定这里放什么图片，不能写死，所以写在数据源里，v-bind会去数据源里找变量返回，不用这个就是当成一个字符串 -->
+        <img v-bind:src="imgUrl" alt="">
+        <!-- 链接也不能写死 -->
+        <a :href="link">百度一下</a>
+
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    msg: '小黑子',
+                    imgUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.rRft2FXf66GvFthFd4OuewAAAA?w=220&h=220&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                    link: 'https://www.baidu.com'
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

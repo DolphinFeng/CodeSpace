@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- v-show从css层面添加了display: none不占据文档流，v-if不加载dom结构   -->
+    <!-- 如果要频繁消失出现，用v-show效率高，v-if多加载一个dom肯定就慢点 -->
+    <!-- v-show控制权限就不好，用权限控制的不能用 -->
+    <template id="my-app">
+        <h2 v-show="isShow">hello World</h2>
+        <button @click="change">切换</button>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data(){
+                return {
+                    isShow: true
+                }
+            },
+            methods: {
+                change(){
+                    this.isShow = !this.isShow
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
