@@ -7,14 +7,25 @@
 </head>
 <body>
     <div id="app">
-        
+        你好
     </div>
-        
-    <script>
-        let app = document.getElementById("app")
-        let h2 = document.createAttribute("h2")
-        h2.innerHTML = "Hello world2"
-        app.appendChild(h2)
+    <script type="x-template" id="template">
+        <div>
+            <h1>{{message}}</h1>
+        </div>
     </script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        document.getElementById("template")
+        Vue.createApp({
+            template: '#template',
+            data: function() {
+                return {
+                    message: '哈哈哈哈哈哈哈哈哈'
+                }
+            }
+        }).mount('#app')
+	</script>
 </body>
 </html>
