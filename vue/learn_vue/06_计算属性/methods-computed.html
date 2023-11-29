@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <button @click="change">修改姓名</button>
+        <h2>computed:{{fullName}}</h2>
+        <h2>computed:{{fullName}}</h2>
+        <h2>computed:{{fullName}}</h2>
+        <h2>computed:{{fullName}}</h2>
+        <h2>computed:{{fullName}}</h2>
+        <!-- hr是html4的标签，不建议使用了 -->
+        <hr>
+        <h2>methods:  {{getFullName()}}</h2>
+        <h2>methods:  {{getFullName()}}</h2>
+        <h2>methods:  {{getFullName()}}</h2>
+        <h2>methods:  {{getFullName()}}</h2>
+        <h2>methods:  {{getFullName()}}</h2>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    firstName: 'Dolphin',
+                    lastName: 'Fung'
+                }  
+            },
+            methods: {
+                getFullName(){
+                    console.log('methods中getFullName执行了')
+                    return this.firstName + ' ' + this.lastName
+                },
+                // change的调用让getFullName也重新执行了（可以把computed注释掉试试看）
+                change(){
+                    this.firstName = 'Parker'
+                }
+            },
+            computed: {
+                fullName(){
+                    // methods中change执行后让getFullName和fullName都执行了
+                    console.log('computed执行了')
+                    return this.firstName + ' ' + this.lastName
+                    // 计算属性是有缓存的，多次使用计算属性的逻辑的时候只会执行一次---------------------------------------
+                    // a和b都变的时候用计算属性就好很多，不需要a放一个methods，b放一个methods
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

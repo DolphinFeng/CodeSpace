@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>歌曲列表</h2>
+        <ul>
+            <!-- 按道理item对于数组来说是key下标，但是这里不一样，是元素  以前v-if是可以使用for里面的item的，但是会报错，但是任可以使用。 -->
+            <!-- v-for和v-if是不可以放在同一个dom结构，这是最新版本vue（3.4？），for让他出现，if让他不出现，性能大打折扣 -->
+            <!-- 考虑性能问题，必须保证每个key是唯一的，v-for要和v-bind一起使用 不加也可以，加了性能会更高，index其实加了也不行，每个元素都是一个对象， -->
+            <!-- for循环必须要有个key唯一标识，否则性能不好 -->
+            <li v-for="(item, index) in songs" :key="index">
+                第{{index + 1}}首：{{item}}
+                <!-- #不会跳转  点击事件可以传参  不要写成delete，js官方有delete-->
+                <a href="#" @click="del(index)">x</a>
+            </li>
+            
+        </ul>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            // 指名容器给到vue，vue生效的时候就回去读到id为my-app，读成字符串，他会给你进行转译
+            template: '#my-app',
+            // 刷新后又回去了，如何进行保存呢
+            data(){
+                return {
+                    songs: [
+                        '爷爷泡的茶',
+                        '红尘客栈',
+                        '烟花易冷',
+                        '发如雪',
+                        '我不配',
+                        '我落泪，情绪零碎',
+                        '夜的第七章',
+                        '我是如此相信',
+                        '爱情废柴',
+                        '珊瑚海',
+                        '红颜如霜',
+                        '布拉格广场'
+                    ]
+                }
+            },
+            methods: {
+                del(i){
+                    // console.log(i+1)
+                    this.songs.splice(i, 1)
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 这是vue第二大magic -->
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>今天温度{{temp}}°</h2>
+        <h3>建议穿：{{suggestion}}</h3>
+        <button @click="add">+5°</button>
+        <button @click="minus">-5°</button>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    // 如果这里的温度也不能写死
+                    temp: -5,
+                    suggestion: '夹克'
+                }
+            },
+            watch: {
+                // 会发生了变更他就能感知到 把人家当作一个key值 并且不需要你自己调用
+                // 两个参数是watch给你自带的参数
+                // temp(newVal, oldVal){
+                //     // console.log('temp变更了')
+                //     if(this.temp >= 25){
+                //         this.suggestion = '短袖'
+                //     }else if(this.temp <= 0){
+                //         this.suggestion = '羽绒服'
+                //     }else{
+                //         this.suggestion = '夹克'
+                //     }
+                //     console.log(newVal, oldVal)
+                // }
+
+                // 让temp立即执行,就是初始进去的时候判断一下
+                temp: {
+                    handler: function(newVal, oldVal){
+                        if(this.temp >= 25){
+                            this.suggestion = '短袖'
+                        }else if(this.temp <= 0){
+                            this.suggestion = '羽绒服'
+                        }else{
+                            this.suggestion = '夹克'
+                        }
+
+                    },
+                    // 让你刚进页面就能先执行一次，好用！
+                    immediate: true
+                }
+            },
+            methods: {
+                add(){
+                    this.temp += 5
+                },
+                minus(){
+                    this.temp -= 5
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+        // 其实还有一个deep，以后再聊
+        // computed和watch可以互相使用，watch可以让你先执行一次。区别：计算属性有缓存，其实爱用哪个用哪个
+    </script>
+</body>
+</html>

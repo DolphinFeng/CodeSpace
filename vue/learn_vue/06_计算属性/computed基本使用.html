@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>今天温度{{temp}}°</h2>
+        <h3>建议穿：{{suggestion}}</h3>
+        <button @click="add">+5°</button>
+        <button @click="minus">-5°</button>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    temp: 10
+                    // suggestion: '夹克'
+                }
+            },
+            computed: {
+                // 响应式执行。执行条件，当他依赖的数据源发生变更时就会执行，这里就是temp。
+                // 因此计算属性中的函数发生变更就会进行执行，数据源别的值变更不会让他执行
+                suggestion(){
+                    let res = '夹克'
+                    if(this.temp >= 25){
+                        res = '短袖'
+                    }else if(this.temp <= 0){
+                        res = '羽绒服'
+                    }else{
+                        res = '夹克'
+                    }
+                    return res
+                }
+            },
+            methods: {
+                add(){
+                    this.temp += 5
+                    // if(this.temp >= 25){
+                    //     this.suggestion = '短袖'
+                    // }else if(this.temp <= 0){
+                    //     this.suggestion = '羽绒服'
+                    // }else{
+                    //     this.suggestion = '夹克'
+                    // }  这个方法不好用，还要放到减法里面，vue有个计算属性，非常优雅
+                    
+                },
+                minus(){
+                    this.temp -= 5
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
