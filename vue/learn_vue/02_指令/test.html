@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <!-- <div>{{ msg }}</div> -->
+        <!-- 挖坑只在开闭标签用，v-text不用花括号 -->
+        <!-- <div v-text="msg"></div> -->
+        <!-- <div v-text="info"></div> -->
+        <div v-html="info"></div>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data(){
+                return {
+                    msg: '小黑子',
+                    // 如果后端给我一个这样的字符串，我就是想要把人家的开闭标签渲染出来 v-html指令 否则用正则切出来
+                    // text只能渲染成文本 ,html可以渲染出效果
+                    info: '<h1>这是一个副文本</h1>'
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

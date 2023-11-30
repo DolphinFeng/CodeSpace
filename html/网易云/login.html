@@ -36,7 +36,7 @@
         const btn = document.getElementById('btn');
         const window1 = document.getElementById('window');
         btn.addEventListener('click',() => {
-            fetch(`http://192.168.31.45:3000/login?username=${ipt1.value}&password=${ipt2.value}`)
+            fetch(`http://127.0.0.1:5501/3000/login?username=${ipt1.value}&password=${ipt2.value}`)
             .then(data => data.json())
             .then(res => {
                 console.log(res);
