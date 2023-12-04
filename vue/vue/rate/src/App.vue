@@ -4,6 +4,7 @@ import JHead from './components/JHead.vue'
 import JMain from './components/JMain.vue'
 import JSide from './components/JSide.vue'
 import JAdver from './components/JAdver.vue'
+
 </script>
 
 <template>
