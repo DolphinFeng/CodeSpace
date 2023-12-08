@@ -4,7 +4,7 @@ let arr = [5, 3, 2, 4, 1]
 
 // 依次找最小值往前方（互换位置），不开辟新的空间
 // 不断地缩小区间，在区间中找到最小值，放在区间地最左侧 
-
+// 事件复杂度：n * n   空间为0
 function selectSort(arr){
     const len = arr.length
     let minIndex 

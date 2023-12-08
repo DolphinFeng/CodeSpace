@@ -34,8 +34,8 @@
         <!-- 就是要用数组动态绑定,如何控制 可以用三元 -->
         <!-- <div :class="['Fung', isActive ? 'active' : '' ]">Dolphin</div> -->
         <!-- 别的方法 ，数组中塞对象-->
-        <div :class="['Fung', {'active': isActive}]">Dolhin</div>
-    
+        <!-- <div :class="['Fung', {'active': isActive}]">Dolphin</div> -->
+        <!-- <div :class="{'active': isActive, getClass()}">海豚</div> -->
     </template>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

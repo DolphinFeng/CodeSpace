@@ -27,3 +27,5 @@ function quickSort(arr) {
     return [...quickSort(left), base, ...quickSort(right)]
 }
 console.log(quickSort(arr))
+
+// 时间复杂度：n * log(n)

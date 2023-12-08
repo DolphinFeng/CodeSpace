@@ -5,6 +5,7 @@ let arr = [5, 3, 2, 4, 1]
 // 2, 3, 5, 4, 1
 // 2, 3, 4, 5, 1
 // 1, 2, 3, 4, 5
+// 时间复杂度： n * n 空间0
 
 function insertSort(arr){
     const len = arr.length
