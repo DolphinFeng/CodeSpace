@@ -36,7 +36,27 @@
     - alias 短路径
         @ -> ./src
 
+- 企业级vue开发框架
+npm i element-plus
+    npm i element-plus ps版 里面有很多组件可以用
+    如何区分vue和element-plus的组件
+    vue是什么开发框架：渐进式式的mvvm开发框架，提供mvvm开发模式 
+    element-plus组件库 https://element-plus.org/zh-CN/ 饿了么提供了国内最顶尖的开发vue开发框架
+        去找到我们想用的组件库
+    
+npm i -D unplugin-auto-import unplugin-vue-components 自动加载vue组件
+
+- vite 写了一段让Element plus 自动引入的代码
+- 通用组件
+    /components/common
+    不属于特定的页面，极高的复用性
+- 图标字体库
+    - 要用到那些图标
+        import {} from '@icon-park/vue-next'
+
 # NeteaseCloudMusicApi-master
-ctrl + `
+ctrl + ` 打开终端
 NeteaseCloudMusicApi-master>npm i
     npm run start
+
+

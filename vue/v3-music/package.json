@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@icon-park/vue-next": "^1.4.2",
+    "element-plus": "^2.4.3",
     "vue": "^3.3.8"
   },
   "devDependencies": {
@@ -17,6 +18,8 @@
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
+    "unplugin-auto-import": "^0.17.2",
+    "unplugin-vue-components": "^0.26.0",
     "vite": "^5.0.0"
   }
 }
