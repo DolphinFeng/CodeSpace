@@ -1,47 +1,83 @@
 <template>
     <!-- vbless 快捷键 option开发方式-->
-    <div class="header">
+    <div class="header" @click="showDetail">
         <!-- 上下布局，下面是个公告 上面是个左中右-->
         <div class="content-wrapper">
             <div class="avatar">
                 <!-- 为了防止图片变形：用个div装起来，高或者宽设置成和父容器一样就可以 -->
-                <img src="./seller_avatar_256px.jpg" alt="">
+                <img :src="seller.avatar" alt="">
             </div>
             <div class="content">
                 <!-- 图片右边内容 -->
                 <div class="title">
                     <span class="brand"></span>
-                    <span class="name">粥品香坊（回龙观）</span>
+                    <span class="name">{{seller.name}}</span>
                 </div>
-                <div class="description">蜂鸟专送/38分钟送达</div>
-                <div class="support">
+                <div class="description">{{seller.description}}/{{seller.deliveryTime}}分钟送达</div>
+                <div class="support" v-if="seller.supports">
                     <!-- 这个地方会单独做成一个小组件。面试：东西分离组件的依据：1.复用 2.当它具有独立的特性，比如购物车，点击会展开，再点开会收回，与里面的内容无关 -->
                     <!-- components/support-icon/support-icon 父子组件，support-icon就相当于子组件-->
-                    <SupportIcon :size="1" :type="0"/>
-                    <span class="text">在线支付满28减5</span>
+                    <SupportIcon size="1" :type="seller.supports[0].type"/>
+                    <!-- size是固定的写死。 -->
+                    <span class="text">{{seller.supports[0].description}}</span>
+                    <!-- 父组件默认空对象，还访问了下标会报错 解决方案：v-if如果有才会加载 -->
                 </div>
             </div>
             <div class="support-count">
-                <span class="count">5个</span>
+                <span class="count" v-if="seller.supports">{{seller.supports.length}}个</span>
                 <i class="iconfont icon-youjiantou"></i>
             </div>
         </div>
         
-
         <div class="bulletin-wrapper">
             <!-- 下面的公告 -->
+            <span class="bulletin-title">
+                <!-- 公告图片 -->
+            </span>
+            <span class="bulletin-text">{{seller.bulletin}}</span>
+            <i class="iconfont icon-youjiantou"></i>
         </div>
-        <div class="bg" style="background-image: url('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg');"></div>
+        <!--   -->
+        <div class="bg" v-if="seller.avatar" :style="{backgroundImage: `url(${seller.avatar})`}">
+        </div>
         <!-- 虚化图片的背景可以同级加一个div  图片放这就是变量 -->
+        <HeaderDetail v-show="detailShow" @hide="handle"></HeaderDetail>
     </div>
 </template>
 
 <script>
 // 引入组件
 import SupportIcon from '@/components/support/Support-icon.vue';
+import HeaderDetail from '@/components/header-detail/Header-detail.vue';
     export default {
         components: {
-            SupportIcon
+            SupportIcon,
+            HeaderDetail
+        },
+        props: {
+            seller: {
+                type: Object,
+                // type若是对象，default就必须是箭头形式（官方建议的）
+                default: () => {
+                    return {}
+                }
+            }
+        },
+        data() {
+            return {
+                detailShow: false
+            }
+        },
+        methods: {
+            showDetail() {
+                this.detailShow = true
+            },
+            handle(val){
+                console.log('子组件发布了一个hide,值为:', val)
+                this.detailShow = val   // 发布订阅模式 click点击才会触发，hide被定义出才会触发
+                // 为何到这儿关不了，弹窗是子容器，所以点击子容器也会点到自己，这个叫做冒泡
+                // 如何点子不点到自己，yyx封装了一个stop,子容器里面的click.stop
+            }
         }
     }
 </script>
@@ -50,6 +86,7 @@ import SupportIcon from '@/components/support/Support-icon.vue';
 // 引入样式 颜色变量 需要打分号，否则报错   @import 和import不是一个东西
 @import '@/common/style/variable.less';
 @import '@/common/style/mixin.less';
+
 
 .header {
     background-color: @color-background-ss;
@@ -128,6 +165,37 @@ import SupportIcon from '@/components/support/Support-icon.vue';
             }
         }
     }
+    .bulletin-wrapper{
+        // 弹性容器，两个子容器都是flex: 1就是一半一半， 如果想要一个20px，其余给到另一个就是flex: 0 0 20px  flex: 1  
+        // 
+        display: flex;
+        height: 28px;
+        padding: 0 8px;
+        background-color: @color-background-sss;
+        align-items: center;
+        color: @color-white;
+        .bulletin-title{
+            // width: 22px; 公告被挤了
+            flex: 0 0 22px; // 第一个参数是放大的比例，第二个缩小比例，第三个，不放大不缩小占据多少
+            height: 12px;
+            .bg-image('bulletin');
+            background-size: 100% 100%; // cover不变形的，可能会截取
+
+        }
+        .bulletin-text{
+            flex: 1;  // 剩下的宽度都给我
+            margin-left: 4px;
+            font-size: @fontsize-small-s;
+            white-space: nowrap; // 强制单行显示
+            overflow: hidden; // 超出则隐藏
+            text-overflow: ellipsis; // 超出部分变更成省略号
+
+        }
+        .icon-youjiantou{
+            flex: 0 0 10px;
+            font-size: @fontsize-small-s;
+        }
+    }
     
     .bg{
         position: absolute;
@@ -142,4 +210,5 @@ import SupportIcon from '@/components/support/Support-icon.vue';
         filter: blur(10px); // 虚化
     }
 }
+
 </style>

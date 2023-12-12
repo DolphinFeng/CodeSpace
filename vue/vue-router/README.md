@@ -12,3 +12,13 @@
     views pages 一般新增文件夹都这样叫   首字母习惯性大写
     快捷键：vb 为什么还有css，js？这里的所有代码都会被当成字符串读走，只不过转译会变回css。js
     如何让home，about页面展示出来？用路由把他们放进index.html中，其实他们都是代码片段。
+
+1. cmd中指令：npm install -g @vue/cli
+
+> 后面那个@vue/cli经常会变
+
+-g是装在全局的，不管哪个文件夹都可以用终端特定命令。安装完后输入：`vue --version`是可以看到版本号的
+
+2. 在指定的目录用cmd打开：`vue create vue-router`
+3. 选中Manually select features
+

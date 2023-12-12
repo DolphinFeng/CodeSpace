@@ -1,5 +1,7 @@
 <template>
-  <v-header/>
+  <v-header :seller="sellerData"/>
+  <!-- v-bind绑定了才能让sellerData成为一个变量 数据源改变响应式更新 -->
+
   <router-view/>
 </template>
 
@@ -14,9 +16,16 @@ export default {
     'v-header': Header
   },
   created() {
+    // 生命周期函数
     getSeller().then(res => {
       console.log(res)
+      this.sellerData = res
     })
+  },
+  data() {
+    return {
+      sellerData: {}//会被重新赋值res，传给子组件
+    }
   }
 }
 </script>
