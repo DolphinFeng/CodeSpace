@@ -16,13 +16,14 @@
                 <div class="description">蜂鸟专送/38分钟送达</div>
                 <div class="support">
                     <!-- 这个地方会单独做成一个小组件。面试：东西分离组件的依据：1.复用 2.当它具有独立的特性，比如购物车，点击会展开，再点开会收回，与里面的内容无关 -->
-                    <!-- 先空着儿 -->
+                    <!-- components/support-icon/support-icon 父子组件，support-icon就相当于子组件-->
+                    <SupportIcon :size="1" :type="0"/>
                     <span class="text">在线支付满28减5</span>
                 </div>
             </div>
             <div class="support-count">
                 <span class="count">5个</span>
-                <i>></i>
+                <i class="iconfont icon-youjiantou"></i>
             </div>
         </div>
         
@@ -30,12 +31,18 @@
         <div class="bulletin-wrapper">
             <!-- 下面的公告 -->
         </div>
+        <div class="bg" style="background-image: url('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg');"></div>
+        <!-- 虚化图片的背景可以同级加一个div  图片放这就是变量 -->
     </div>
 </template>
 
 <script>
+// 引入组件
+import SupportIcon from '@/components/support/Support-icon.vue';
     export default {
-        
+        components: {
+            SupportIcon
+        }
     }
 </script>
 
@@ -43,8 +50,10 @@
 // 引入样式 颜色变量 需要打分号，否则报错   @import 和import不是一个东西
 @import '@/common/style/variable.less';
 @import '@/common/style/mixin.less';
+
 .header {
     background-color: @color-background-ss;
+    position: relative;
     .content-wrapper{
         display: flex; // 弹性容器：子容器去到同一行
         padding: 24px 12px 18px 24px; // 上右下左
@@ -94,6 +103,7 @@
                 align-items: center;
                 .text{
                     font-size: @fontsize-small-s;
+                    margin-left: 4px;
                 }
             }
         }
@@ -117,6 +127,19 @@
                 margin-left: 2px;
             }
         }
+    }
+    
+    .bg{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        // 绝对定位全部铺开
+        
+        background-size: 100% 100%;
+        z-index: -1;
+        filter: blur(10px); // 虚化
     }
 }
 </style>
