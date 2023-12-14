@@ -71,3 +71,4 @@ URL encoded form (application/x-www-form-urlencoded)
 
 
 # 在App.vue中获取到了商家信息
+1. 通过父向子传值的方式将数据传递给header组件进行展示
