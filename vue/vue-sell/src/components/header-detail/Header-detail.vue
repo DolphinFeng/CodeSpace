@@ -6,7 +6,7 @@
 
             <div class="detail-wrapper">
                 <div class="detail-main">
-                    <h1 class="name">店铺名称</h1>
+                    <h1 class="name">{{seller.name}}</h1>
                 </div>
             </div>
 
