@@ -1,25 +1,23 @@
 <script setup>
+// import { onMounted } from 'vue' // 这里进行挂载，然后就可以立即发送请求
 // import Menu from './components/layout/menu/Menu.vue';
-import Menu from '@/components/layout/menu/Menu.vue';
-import Header from '@/components/layout/header/Header.vue';
+
+// import { getBanner } from '@/utils/api' // 为何解构需要{} 因为过来的时候是个对象
+// import { getSearchSuggestion } from '@/utils/api'
+
+// 请求发送的时机在何时？在进行挂载
+
+// onMounted(async () => {
+//   const data = await getBanner()
+//   const result = await getSearchSuggestion('海阔天空')
+//   console.log(data)
+//   console.log(result)
+// })
+
 </script>
 
 <template>
-  <!-- <div class="w-56 h-56 bg-green-500"></div> -->
-  <!-- 多个类名好处：复用 ---原子性 -->
-  <div class="w-screen h-screen flex items-stretch overflow-hidden">
-    <div class="w-56 h-screen flex-shrink-0">
-      <Menu/>
-    </div>
-    <div class="flex-1 flex flex-col">
-      <div class="h-14">
-        <Header />
-      </div>
-      <div>
-        <ElButton>按钮</ElButton>
-      </div>
-    </div>
-  </div>
+  <router-view></router-view>
 </template>
 
 <style scoped>

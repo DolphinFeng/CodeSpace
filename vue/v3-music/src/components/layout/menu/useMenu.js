@@ -64,6 +64,7 @@ export function useMenu() {
       ]
     const changeMenu = (menu) => {
         currentKey.value = menu.key
+        
     }
     return {
         menus,

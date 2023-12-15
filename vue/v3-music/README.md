@@ -59,4 +59,50 @@ ctrl + ` 打开终端
 NeteaseCloudMusicApi-master>npm i
     npm run start
 
+12.15
+ npm i axios 安装
+如何写代码：能写注释，知道合并代码，优化，
 
+当你看不懂人家的代码，要学会打断点，跟代码
+
+- 断点调试法
+    当我们开始想写项目的时候，在github上找一个排名靠前的项目，哪里看不懂，给个断电，一路跟下去。这是优秀的代码学习方法。
+    - 组件和数据接口分离/components
+        复用，方便管理，让组件干净，template script
+    - 数据统一管理/utils
+        - api.js 
+            封装的业务接口，函数名字自带解释
+        - http.js
+            复用axios的底层封装
+
+
+- 开发文档
+    - 前端要响应式数据
+    - 数据请求要分离到utils/api.js
+    - 后端是个黑盒子
+        1. 基于http
+            axios 提供 get
+        2. 看后端给的开发文档
+             /url GET/POST params {}
+             response 什么？
+
+    - 自己的项目
+        - Laf做后端
+            - 数据库
+            - 云函数
+            - 开发文档
+
+    - 有哪些组件？
+        - 父子组件
+        - 页面组件
+            vue-router view/
+        - 通用组件
+            components/common
+        - 框架UI组件
+        - 业务组件 /components
+
+    - 路由的组件流程
+        - router 配置文件夹
+        - views/ 页面级别组件
+        - 路由接管了应用
+            
