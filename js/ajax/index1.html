@@ -21,7 +21,7 @@
         // 早期 (很麻烦，请求太多咋搞，可以包装一个函数，jquery中有个就叫ajax的方法)请求 open做请求的准备工作 参数：get,post,delete,等等get去要东西，第二个参数朝哪里要,
         // 第三个参数布尔，控制请求异步（需要耗时的代码）还是同步，耗时一定是异步，可以强行同步，阻塞后面代码，true异步，false同步，第四个，第五个参数用不上
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://u.ronki.moe:3000/top/song?type=8', true)
+        xhr.open('GET', 'http://172.22.22.71:3000/top/song?type=8', true)
         // 相应写在前面，用来监听后端代码有没有回来
         xhr.onreadystatechange = () => {
             // enreadystatechange有个等候过程，否则就执行send了 0-5参数，0刚创建xhr, 1open准备好了，2已经send了，3已经接收到响应体了，4数据解析完成。

@@ -3,7 +3,6 @@
         <el-container>
             <el-header>
                 <span>选课系统</span>
-
                 <el-dropdown>
                     <span class="el-dropdown-link">
                         <!-- 路由传参：写法一 -->
@@ -11,9 +10,9 @@
                         <!-- 写法二 -->
                         <!-- 欢迎{{$route.query.user}} -->
                         <!-- 第三种 -->
-                        欢迎{{$route.params.user}}
+                        <!-- 欢迎{{$route.params.user}} -->
                         <!-- 第四种 -->
-                        <!-- 欢迎{{$route.hash.slice(1)}} -->
+                        欢迎{{$route.hash.slice(1)}}
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu>

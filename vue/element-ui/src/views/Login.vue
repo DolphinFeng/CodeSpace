@@ -46,10 +46,10 @@
                 // console.log(this.$router);
                 // this代表vue的实例对象 为什么vue会有$router，因为main.js中  createApp(App).use(router) 有个use
 
-                // this.$router.push(`/home/${this.account}`) 第一种
-                // this.$router.push({path: '/home', query: {user: this.account}}) 第二种
-                this.$router.push({name: 'home', params: {user: this.account}})
-                // this.$router.push({path: '/home', hash: `#${this.account}`}) 第四种
+                // this.$router.push(`/home/${this.account}`) //第一种
+                // this.$router.push({path: '/home', query: {user: this.account}}) //第二种
+                // this.$router.push({name: 'home', params: {user: this.account}}) // 第三种
+                this.$router.push({path: '/home', hash: `#${this.account}`}) //第四种
             }
         }
     }

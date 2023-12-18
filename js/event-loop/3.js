@@ -2,6 +2,7 @@
 console.log('script start')  //       1--------------1  a
 async function async1() { // 相当于promise  同步
     await async2() // 异步微任务
+    await async2() 
     console.log('async1 end') // 也变成了微任务   5----------5  b
 }
 async function async2() { // 4-------------2  c

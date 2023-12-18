@@ -17,13 +17,19 @@
         btn.addEventListener('click',() => {
             //$ 是个变量
             $.ajax({
-                url: 'http://u.ronki.moe:3000/top/song?type=8',
+                url: 'http://172.22.22.71:3000/top/song?type=8',
                 method: 'GET',
                 // 传一个json格式，而不是字符串
                 dataType: 'json',
                 // 回调：请求是异步（需要时间，只要不嵌套过深就没有地狱问题），拿完数据再来输出
                 success: function(res){
                     console.log(res);
+                    res.data.forEach( (song) => {
+                    console.log(song.name);
+                    let li = document.createElement('li')
+                    li.innerHTML = song.name
+                    document.getElementById('ul').appendChild(li)
+                })
                 }
             })
             // 原生javascript发接口请求太麻烦，后来jquery（只做js），给数组，对象定义的方法都很牛，得会用jQuery，后来因为开发模式变了，用其他的框架去做开发，

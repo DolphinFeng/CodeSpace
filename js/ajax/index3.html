@@ -15,7 +15,7 @@
         const btn = document.getElementById('btn');
         btn.addEventListener('click',() => {
             // https://developer.mozilla.org/zh-CN/docs/Web/API/fetch  fetch（里面封装了promise）用法
-            fetch('http://u.ronki.moe:3000/top/song?type=8')
+            fetch('http://172.22.22.71:3000/top/song?type=7')
             .then(data => data.json())
                 // data封装好了json才可以.json  普通对象没有 ，作用：把车厢资源格式化
                 // 上一个data.json()return的resolve值
