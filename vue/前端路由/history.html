@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="/home">首页</a></li> 
+        <!-- a标签默认就是跳转一个页面 -->
+        <li><a href="/about">关于</a></li>
+    </ul>
+
+    <div id="routeView">
+
+    </div>
+
+    <script>
+        const routes = [
+            {
+                path: '/home',
+                component: '首fa ffffff容'
+            },
+            {
+                path: '/about',
+                component: '<h1>关于页面内容</h1>'
+            }
+        ]
+        
+        const routeView = document.getElementById('routeView')
+
+        window.addEventListener('DOMContentLoaded', onLoad)
+        window.addEventListener('popstate', onPopState)
+
+        function onLoad() {
+            const links = document.querySelectorAll('li a') // 获取所有的li下的a标签
+            // console.log(links)
+            links.forEach((a) => {
+                // 禁用a标签的默认跳转行为
+                a.addEventListener('click', (e) => {
+                    e.preventDefault() // 阻止a的跳转行为
+                    history.pushState(null, '', a.getAttribute('href')) // 核心方法  a.getAttribute('href')获取a标签下的href属性
+                    // 映射对应的dom
+                    onPopState()
+                })
+            })
+        }
+
+        function onPopState() {
+            console.log(location.pathname)
+            routes.forEach((item) => {
+                if(item.path === location.pathname) {
+                    routeView.innerHTML = item.component
+                }
+            })
+        }
+    </script>
+</body>
+</html>
