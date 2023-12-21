@@ -16,6 +16,7 @@
         }, // data是正数据源，负数据源，props只接受父组件的东西
         watch: {
           msg(newVal){
+            // console.log(newVal)
             this.lists.push(newVal)
           }
         },

@@ -31,7 +31,7 @@
         submit() {
           // console.log(this.message);
           if(this.message) {
-            // this.lists.push(this.message);
+            this.lists.push(this.message);
             this.message = ''
           }
           
