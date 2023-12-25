@@ -40,7 +40,7 @@
         window.addEventListener('hashchange', onHashChange)
         
         function onHashChange() {
-            console.log(location.hash) // url详情，里面就有个hash值  liveserver可以帮你把html跑成服务器
+            console.log(location) // url详情，里面就有个hash值  liveserver可以帮你把html跑成服务器
             routes.forEach((item, index) => {
                 if(item.path === location.hash) {
                     routeView.innerHTML = item.component

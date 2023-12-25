@@ -12,12 +12,6 @@
       components: {
         Head,
         List
-      },
-      data() {
-
-      },
-      methods: {
-
       }
     }
   </script>

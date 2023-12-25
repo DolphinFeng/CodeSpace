@@ -10,7 +10,9 @@ import { mapMutations } from 'vuex'
     export default {
         methods: {
             submit() {
+                if(!this.message) return 
                 this.listsAdd(this.message)
+                this.message = ''
             },
             ...mapMutations(['listsAdd'])
         }

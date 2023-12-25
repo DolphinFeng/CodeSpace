@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- 所有配置了router-view都展示在这个口子 -->
+    <!-- 所有配置了路由的.vue文件都展示在这个口子 -->
     <router-view></router-view>
   </div>
 </template>
