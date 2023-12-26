@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="demo">
+        <ul>
+            <li v-for="(item, index) in list" @click="handle(item)" :key="index">{{item}}</li>
+        </ul>
+    </template>
+
+    <script>
+        Vue.createApp({
+            template: '#demo',
+            data() {
+                return {
+                    list: ['a', 'b', 'c', 'd', 'e']
+                }
+            },
+            methods: {
+                handle(i) {
+                    console.log(i)
+                }
+            }
+        }).mount('#app')
+    </script>
+
+    <!-- 所以vue的绑定事件就是事件委托 -->
+</body>
+</html>

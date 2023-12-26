@@ -23,7 +23,7 @@
         const routes = [
             {
                 path: '/home',
-                component: '首fa ffffff容'
+                component: '首页内容'
             },
             {
                 path: '/about',
@@ -42,6 +42,7 @@
             links.forEach((a) => {
                 // 禁用a标签的默认跳转行为
                 a.addEventListener('click', (e) => {
+                    console.log(e)
                     e.preventDefault() // 阻止a的跳转行为
                     history.pushState(null, '', a.getAttribute('href')) // 核心方法  a.getAttribute('href')获取a标签下的href属性
                     // 映射对应的dom

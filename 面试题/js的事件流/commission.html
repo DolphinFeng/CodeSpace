@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+
+    <script>
+        // let list = document.querySelectorAll("#ul li");
+
+        // list.forEach(function(li) {
+        //     li.addEventListener("click", function() {
+        //         console.log(li.textContent)
+        //         // innerText 还会拿到dom结构
+        //     })
+        // })
+
+        // 上面代码还是不够优雅 100个li会注册100个事件，空间复杂度很大
+        
+        // 事件委托：借助冒泡，因为ul只有一个
+        ul.addEventListener('click', (e) => {
+            console.log(123)
+            console.log(e.target.innerHTML) // innerHTML比innerText好，还会拿到dom结构
+        })
+
+    </script>
+</body>
+</html>

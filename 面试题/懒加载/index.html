@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-item{
+            display: block;
+            height: 300px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.5053ecdbef05fa7726aa489d27b52e40&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.c5db2c88af1a76f18d0efe02fcded91d&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.c5129de8701c4a933d92cd6bf832b233&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.afe7f6448d6eba0055cd8ce9ac9fdf62&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.e168b9c5da30772083104ed0f4ef0ecf&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.8025ce5a977b3826589022cede69e110&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.a58ae29e32e20a27d498eed19528ee3c&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.2049b527600b31b2cd863a380be59848&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.9f51912b8b6c19a9891b380ad526db85&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+    <img class='img-item' src='' data-original="https://th.bing.com/th?id=ORMS.1b6375ea147b5704f9d073a326e1fc2a&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+
+    <script>
+        // 判断图片有没有进入可视区，有得话就将其data-original值赋给src
+
+        // 动态获取可视区高度 1.文档的高度(offSetHeight（含边框）  clientHeight(不含边框)) 2.窗口的高度（window.innerHeight）
+        let viewHeight = window.innerHeight
+        console.log(viewHeight)
+
+        // 判定几张图片 
+        function lazyLoad() {
+            let imgs = document.querySelectorAll('img[data-original]') // 具有data-original的img标签 这是语法
+            imgs.forEach(el => {
+                // 判定哪个el进入可视区内 
+                console.log(111)
+                let rect = el.getBoundingClientRect() // 所有dom结构都有这个方法 获取dom几何信息
+                // 注意 bottom是div的底部到屏幕的最上方  top < viewHeight就在范围内
+                if(rect.top < viewHeight) {
+                    console.log(222)
+                    let image = new Image()// image有个构造函数
+                    image.src = el.dataset.original // data-是专有写法，就是dataset
+                    image.onload = function() {
+                        el.src = image.src // 这样写，加载完就可以了
+                    }
+                    // 图片加载完毕后就移除data-original这个属性
+                    el.removeAttribute('data-original') // 不移除为何不行? lazyLoad函数第一行代码就不会执行
+                }
+            })
+        }
+        lazyLoad()
+        document.addEventListener('scroll', lazyLoad)
+    </script>
+</body>
+</html>
