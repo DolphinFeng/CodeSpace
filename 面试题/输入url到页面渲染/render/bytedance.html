@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        let el = document.getElementById('app')
+        el.style.width = (el.offsetWidth + 1) + 'px' // 先执行右边的，但是触发的时候队列没有东西，然后赋值，进队列，下面的也进队列，也就一次回流
+        el.style.width = 1 + 'px' // offset只是让队列的东西执行，没东西就无法执行，老版本就是两次
+
+        // js基础3，5 个，项目难点，手段，开发，大文件上传，字节一面1个小时以上基本就稳了，每个问题都可以回答得很全面
+    </script>
+</body>
+</html>

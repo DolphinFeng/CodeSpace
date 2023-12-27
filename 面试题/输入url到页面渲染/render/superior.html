@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box"></ul>
+
+    <!-- <script>
+        const ul = document.getElementById("box");
+        ul.style.display = "none"; // 这也是一次
+
+        for (let i = 1; i<=100; i++) {
+            let li = document.createElement("li");
+            let text = document.createTextNode(i) // 创建文本节点
+            li.appendChild(text) 不算回流
+            ul.appendChild(li); 100次
+        }
+        // 100次变成一次
+        ul.style.display = "block"  
+    </script> -->
+
+    <!-- <script>
+        const ul = document.getElementById("box");
+        const fragment = document.createDocumentFragment(); // 虚拟的文档片段
+
+        for (let i = 1; i<=100; i++) {
+            let li = document.createElement("li");
+            let text = document.createTextNode(i) // 创建文本节点
+            li.appendChild(text)
+            fragment.appendChild(li); // 虚拟片段不会回流
+        }
+
+        ul.appendChild(fragment) 
+    </script> -->
+
+    <script>
+        const ul = document.getElementById("box");
+        const clone = ul.cloneNode(true) // 克隆一份ul，必定是深拷贝，原ul不受影响
+
+        for (let i = 1; i<=100; i++) {
+            let li = document.createElement("li");
+            let text = document.createTextNode(i) // 创建文本节点
+            li.appendChild(text)
+            clone.appendChild(li);
+        }
+
+        ul.parentNode.replaceChild(clone, ul) // 替代品， 被替代品
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .a .b .c {
+
+        }
+        .c {
+            生成树的时候这个写法更优雅，就不用去找a再找b，找c，但前提需要名字不能冲突
+        } */
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="name">Tom</div>
+        <div class="age">18</div>
+    </div>
+
+    <script>
+        // html转成树状结构，大概就像下面这样，不过没这么简单，这是js模拟出来的
+        // 其实还有x,y坐标，GPU好去渲染，颜色由css负责
+        let node = {
+            tag: 'div',
+            id: 'app',
+            class: '',
+            children: [
+                {
+                    tag: 'div',
+                    id: '',
+                    class: 'name',
+                    text: 'Tom'
+                },
+                {
+                    tag: 'div',
+                    id: '',
+                    class: 'age',
+                    text: '18'
+                }
+            ]
+        }
+    </script>
+</body>
+</html>

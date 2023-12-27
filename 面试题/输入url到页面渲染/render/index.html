@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">Hello</div>
+
+    <script>
+        let app = document.getElementById('app')
+
+        app.style.position = 'relative';
+        app.style.width = '100px'
+        console.log(app.offsetWidth) // 相比clientWidth 会含边框    inner.width是window独有地
+        app.style.height = '200px'
+        console.log(app.offsetHeight)
+        app.style.left = '10px'
+        console.log(app.offsetLeft)
+        app.style.top = '10px'
+        console.log(app.offsetTop)
+        // width height left top 就是四次回流（老版本5，6个版本之前的是这样）   但是现在是一次：浏览器执行js时会维护一个队列
+        // app.style.cssText = 'width: 100px; height: 200px; left: 10px; top: 10px' // 这样就是回流一次
+        // 给容器动态绑定属性也可以，
+
+        // 但是要计算的时候就会打断，发生四次回流，只有第一个有队列，console.log是同步，必须要读到，从上往下
+
+    </script>
+</body>
+</html>
