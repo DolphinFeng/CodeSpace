@@ -37,23 +37,23 @@
         let box = document.getElementById("box");
 
         // 第三个参数默认false
-        // app.addEventListener('click', (e) => { // 绑定，注册，订阅都可以这样叫
-        //     console.log('app') // app容器内都可以
-        //     e.stopPropagation() // 捕获阶段也可以组织
-        //     // e.stopImmediatePropagation(); 
-        // })
+        app.addEventListener('click', (e) => { // 绑定，注册，订阅都可以这样叫
+            console.log('app') // app容器内都可以
+            // e.stopPropagation() // 捕获阶段也可以组织
+            // e.stopImmediatePropagation(); 
+        }, true)
 
-        // wrapper.addEventListener('click', () => {
-        //     console.log('wrapper') // 点击app除了wrapper外不会打印，也就是说父容器不一定触发子容器，但是子容器一定触发父容器
-        //     // 点击事件一定是先施加在父容器上的，尽管先打印wrapper
-        // })
+        wrapper.addEventListener('click', () => {
+            console.log('wrapper') // 点击app除了wrapper外不会打印，也就是说父容器不一定触发子容器，但是子容器一定触发父容器
+            // 点击事件一定是先施加在父容器上的，尽管先打印wrapper
+        })
 
         box.addEventListener('click', (e) => { 
             console.log('box')
             // 组织冒泡
-            console.log(e) // 找到
+            // console.log(e) // 找到
             // e.stopPropagation()
-            e.stopImmediatePropagation();  // 阻止别人绑定的多个事件
+            // e.stopImmediatePropagation();  // 阻止别人绑定的多个事件
         })
 
         // box.addEventListener('click', (e) => { 
@@ -64,12 +64,12 @@
         //     // e.stopImmediatePropagation(); 
         // })
 
-        box.addEventListener('mouseenter', (e) => { 
-            console.log('box2')
-            // 组织冒泡
-            console.log(e) // 找到
-            // e.stopPropagation()
-        })
+        // box.addEventListener('mouseenter', (e) => { 
+        //     console.log('box2')
+        //     // 组织冒泡
+        //     console.log(e) // 找到
+        //     // e.stopPropagation()
+        // })
 
 
     </script>
