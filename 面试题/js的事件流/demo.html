@@ -10,7 +10,7 @@
     <div id="app"></div>
     <template id="demo">
         <ul>
-            <li v-for="(item, index) in list" @click="handle(item)" :key="index">{{item}}</li>
+            <li v-for="(item, index) in list" @click="handle(index)" :key="index">{{item}}</li>
         </ul>
     </template>
 
@@ -24,7 +24,7 @@
             },
             methods: {
                 handle(i) {
-                    console.log(i)
+                    console.log(this.list[i])
                 }
             }
         }).mount('#app')

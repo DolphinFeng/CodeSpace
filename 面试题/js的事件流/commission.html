@@ -16,10 +16,11 @@
 
     <script>
         // let list = document.querySelectorAll("#ul li");
+        // console.log(list)
 
         // list.forEach(function(li) {
         //     li.addEventListener("click", function() {
-        //         console.log(li.textContent)
+        //         console.log(li.innerText)
         //         // innerText 还会拿到dom结构
         //     })
         // })
@@ -27,8 +28,11 @@
         // 上面代码还是不够优雅 100个li会注册100个事件，空间复杂度很大
         
         // 事件委托：借助冒泡，因为ul只有一个
+        let ul = document.getElementById("ul")
         ul.addEventListener('click', (e) => {
-            console.log(123)
+            // console.log(123)
+            console.log(e)
+            // console.log(e.target)
             console.log(e.target.innerHTML) // innerHTML比innerText好，还会拿到dom结构
         })
 

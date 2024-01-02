@@ -36,11 +36,11 @@
             let imgs = document.querySelectorAll('img[data-original]') // 具有data-original的img标签 这是语法
             imgs.forEach(el => {
                 // 判定哪个el进入可视区内 
-                console.log(111)
+                // console.log(111)
                 let rect = el.getBoundingClientRect() // 所有dom结构都有这个方法 获取dom几何信息
                 // 注意 bottom是div的底部到屏幕的最上方  top < viewHeight就在范围内
                 if(rect.top < viewHeight) {
-                    console.log(222)
+                    // console.log(222)
                     let image = new Image()// image有个构造函数
                     image.src = el.dataset.original // data-是专有写法，就是dataset
                     image.onload = function() {

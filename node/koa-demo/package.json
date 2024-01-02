@@ -1,0 +1,16 @@
+{
+  "name": "koa-demo",
+  "version": "1.0.0",
+  "description": "node的一个框架，就像写js不会用原生js，而是用vue\r koa会用就行，真正还是用nest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^12.0.1",
+    "koa": "^2.15.0"
+  }
+}
