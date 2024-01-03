@@ -30,6 +30,7 @@
 // setup更灵活
 import { useRouter } from 'vue-router' // 钩子hooks函数
 import { reactive } from 'vue' // reactive
+import axios from '../api'
 // data用得上用不上都需要写上，reactive响应式，不用就不写，将对象变成响应式
 // reactive负责把多个引用类型变成响应式，通常ref负责把原始类型变成响应式 
 const router = useRouter() // this.$router.push相当于 现在就是router.push()
@@ -39,10 +40,17 @@ const state = reactive({
     password: '',
 })
 
-const onSubmit = () => {
-    // 发请求将state.username, state.password发给后端
-    // ... 
+const onSubmit = async() => {
+    // 发请求将state.username, state.password发给后端  xhr ,axios, fetch
+    const res = await axios.post('/login', { // 后端定义的post，这里就只能post  url只写后半段因为有个baseURL
+        username: state.username,
+        password: state.password
+    }) 
+    console.log(res) // 浏览器会有个安全策略，需要同源才能请求
     console.log(state.username, state.password)
+    // 保存用户信息
+    sessionStorage.setItem('userInfo', JSON.stringify(res.data)) // key value value必须是字符串
+    router.push('/noteClass')
 }
 
 const register = () => {
