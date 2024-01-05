@@ -15,8 +15,8 @@
         for (let i = 1; i<=100; i++) {
             let li = document.createElement("li");
             let text = document.createTextNode(i) // 创建文本节点
-            li.appendChild(text) 不算回流
-            ul.appendChild(li); 100次
+            li.appendChild(text) // 不算回流
+            ul.appendChild(li);  // 100次
         }
         // 100次变成一次
         ul.style.display = "block"  
