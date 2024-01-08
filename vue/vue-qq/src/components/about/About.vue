@@ -1,7 +1,9 @@
 <template>
     <div class="container">
         <div class="head">
-            <i class="iconfont icon-fanhui5"></i>
+            <router-link to='/myself'>
+                <i class="iconfont icon-fanhui5"></i>
+            </router-link>
             <i class="iconfont icon-shezhi"></i>
         </div>
 
@@ -39,11 +41,19 @@
                     <i class="iconfont icon-fanhui2"></i>
                 </div>
                 
-                <div class="tag"></div>
+                <div class="tag">
+                    <button>话痨</button>
+                    <button>爱狗</button>
+                    <button>游戏迷</button>
+                    <button>不追星</button>
+                    <button>出气泡</button>
+                </div>
             </div>
 
             <div class="space">
-
+                <i class="iconfont icon-qqkongjian"></i>
+                <span>他的QQ空间</span>
+                <i class="iconfont icon-fanhui2"></i>
             </div>
 
             <div class="gift">
@@ -81,6 +91,7 @@ export default {
         float: left;
         font-size: 25px;    
         // filter: invert(50%);
+        color: rgb(255, 255, 255);
     }
     .icon-shezhi {
         float: right;
@@ -188,7 +199,34 @@ export default {
             }
 
         }
+        .tag {
+            position: fixed;
+            margin-top: 210px;
+            margin-left: 6px;
+            button {
+                border: 2px solid rgba(40, 40, 40, 0.1);
+                border-radius: 4px;
+                background-color: rgb(255, 255, 255); 
+                margin: 5px;
+                padding: 2px 5px;  
+            }
+        }
+
+
     }
+    .space {
+            position: fixed;
+            margin-top: 250px;
+            margin-left: 10px;
+            span{
+                font-size: 10px;
+            }
+            .icon-fanhui2 {
+                position: fixed;
+                right: 10px;
+                color: black;
+            }  
+        }
 }
 
 .foot {

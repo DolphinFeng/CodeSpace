@@ -15,6 +15,7 @@
     "koa-bodyparser": "^4.4.1",
     "koa2-cors": "^2.0.6",
     "mysql": "^2.18.1",
-    "mysql2": "^3.6.5"
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.2"
   }
 }

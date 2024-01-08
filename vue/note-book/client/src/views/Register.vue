@@ -32,6 +32,8 @@
 // setup更灵活
 import { useRouter } from 'vue-router' // 钩子hooks函数
 import { reactive } from 'vue' // reactive
+import axios from '../api'
+import { showSuccessToast } from 'vant';
 // data用得上用不上都需要写上，reactive响应式，不用就不写，将对象变成响应式
 // reactive负责把多个引用类型变成响应式，通常ref负责把原始类型变成响应式 
 const router = useRouter() // this.$router.push相当于 现在就是router.push()
@@ -42,10 +44,22 @@ const state = reactive({
     nickname: '',
 })
 
-const onSubmit = () => {
+const onSubmit = async() => {
     // 发请求将state.username, state.password发给后端
-    // ... 
-    console.log(state.username, state.password)
+    // console.log(state.nickname, state.username, state.password)
+    const data = await axios.post('./register', {
+        username: state.username,
+        password: state.password,
+        nickname: state.nickname
+    })
+    console.log(data)
+    // 注册成功，跳转到登录界面
+    // showSuccessToast(data.msg);
+    setTimeout(() => {
+        router.push('/login')
+    }, 1500)
+    
+    
 }
 
 const login = () => {

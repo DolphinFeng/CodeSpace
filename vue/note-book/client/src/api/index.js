@@ -15,7 +15,8 @@ axios.interceptors.response.use(res => {  // res代表响应体
         if (res.data.code !== '8000') { // 逻辑性错误： 就不写死了   body对应data
             showFailToast(res.data.msg)
             // Promise.reject(res) // reject可以这么用
-            return res
+            // return res
+            return Promise.reject(res)
         } else {
             // 登录成功
             showSuccessToast(res.data.msg)

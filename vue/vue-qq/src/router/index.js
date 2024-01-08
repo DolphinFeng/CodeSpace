@@ -1,10 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import About from '@/components/about/About.vue'
+import Myself from '@/components/myself/Myself.vue'
 
 const routes = [
   {
     path: '/',
-    redirect: '/about'
+    redirect: '/myself'
+  },
+  {
+    path: '/myself',
+    component: Myself 
   },
   {
     path: '/about',
@@ -13,7 +18,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 

@@ -37,12 +37,26 @@ const allService = {
     }
 }
 
-// 登录
+// 登录  sql语句 =不要打空格 另外记得分号结尾
 const userLogin = (username, password) => {
-    let _sql = `select * from users where username = "${username}" and password = "${password}";`
+    let _sql = `select * from users where username="${username}"and password="${password}";`
     return allService.query(_sql)
 }
 
+// 校验账号是否存在 
+const userFind = (username) => {
+    let _sql = `select * from users where username="${username}";`
+    return allService.query(_sql)
+}
+
+// 注册
+const userRegister = (values) => { // 传一个对象进来  values = [username, password, nickname]
+    let _sql = `insert into users set username=?,password=?,nickname=?;`
+    return allService.query(_sql, values)
+}
+
 module.exports = {
-    userLogin
+    userLogin,
+    userFind,
+    userRegister,
 }

@@ -27,6 +27,7 @@ npm i koa  // 后端喜欢用npm
 npm i @koa/router  安装koa路由 (像配路由一样，把if逻辑分出来写)// 后端难在优化
 npm i koa-bodyparser 安装这个就可以让koa解析post请求
 npm i mysql  // 让node连接数据库
+npm install -g nodemon  // 安装nodemon 更改后端代码就不用重启了
 后端目录结构：
 - 控制层
 - 路由层 

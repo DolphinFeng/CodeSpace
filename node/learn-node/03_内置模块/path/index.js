@@ -14,6 +14,6 @@ const path = require('path') // path理解为某某路径下的一个东西，no
 // console.log(path.normalize('/a/\b/c.j'))  // \a\b\c.j 格式化路径:将路径格式化成标准的路径 mac和windows不一样
 // console.log(path.parse(__filename)) // parse是解析的意思  把你的文件夹的绝对目录，文件名，后缀，名称都解析出来
 // console.log('foo\\bar\\baz'.split(path.sep)) // [ 'foo', 'bar', 'baz' ]  window这样写
-// console.log(path.isAbsolute()) 判断是否为绝对路径
+console.log(path.isAbsolute('D:\\codeSpace\\node\\learn-node\\03_内置模块\\path'))//  判断是否为绝对路径
 
 
