@@ -10,5 +10,5 @@ const img = fs.readFileSync('./avatar.jpg')
 // console.log(img.toString()) 把图片以字符串的方式读取
 
 // 将图片写入pic中去
-// fs.writeFileSync('./pic/avatar2.jpg', img)
+fs.writeFileSync('./pic/avatar.jpg', img)
 // 平时的复制就是复制buffer流

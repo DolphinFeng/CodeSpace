@@ -55,8 +55,29 @@ const userRegister = (values) => { // 传一个对象进来  values = [username,
     return allService.query(_sql, values)
 }
 
+// 根据类型查找笔记列表
+const findNoteListByType = (note_type) => {
+    let _sql = `select * from note where note_type="${note_type}";`
+    return allService.query(_sql)  // 链接数据库，执行sql语句
+}
+
+// 根据id查找笔记细节
+const findNoteDetailById = (id) => {
+    let _sql = `select * from note where id="${id}";`
+    return allService.query(_sql)
+}
+
+// 发布笔记
+const notePublish = (values) => {
+    let _sql = `insert into note set note_content=?,title=?,head_img=?,note_type=?,nickname=?,userId=?,c_time=?,m_time=?;`
+    return allService.query(_sql, values)  // 植入数据就要传参
+}
+
 module.exports = {
     userLogin,
     userFind,
     userRegister,
+    findNoteListByType,
+    findNoteDetailById,
+    notePublish,
 }

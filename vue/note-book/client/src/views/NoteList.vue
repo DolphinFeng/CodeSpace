@@ -1,34 +1,23 @@
 <template>
     <div class="note-list">
-        <ul>
-            <li>
+        <ul v-if="noteList.length">
+            <li v-for="item in noteList" :key="item.id" @click="goNoteDetail(item.id)">
                 <div class="img">
-                    <img src="https://ts1.cn.mm.bing.net/th?id=ORMS.98534828e436b883d6aadc213ebf5f86&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
+                    <img :src="item.head_img" alt="">
                 </div>
-                <p class="time">2023/05/20</p>
-                <p class="title">今天吃了猪脚饭今天吃了猪脚饭今天吃了猪脚饭今天吃了猪脚饭今天吃了猪脚饭今天吃了猪脚饭</p>
-            </li>
-            <li>
-                <div class="img">
-                    <img src="https://ts1.cn.mm.bing.net/th?id=ORMS.98534828e436b883d6aadc213ebf5f86&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
-                </div>
-                <p class="time">2023/05/20</p>
-                <p class="title">今天吃了猪脚饭</p>
-            </li>
-            <li>
-                <div class="img">
-                    <img src="https://ts1.cn.mm.bing.net/th?id=ORMS.98534828e436b883d6aadc213ebf5f86&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0" alt="">
-                </div>
-                <p class="time">2023/05/20</p>
-                <p class="title">今天吃了猪脚饭</p>
+                <p class="time">{{item.c_time}}</p>
+                <p class="title">{{item.title}}</p>
             </li>
         </ul>
-        欢迎{{$route.query.title}}
+        <p class="empty" v-else>当前分类下还没有文章</p>
+        <!-- 欢迎{{$route.query.title}} -->
     </div>
 </template>
 
 <script setup>
-import { onMounted, onBeforeMount, onUnmounted, onUpdated } from 'vue';
+import { onMounted, onBeforeMount, onUnmounted, onUpdated, ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
+import axios from '../api'
 // 页面加载中发送请求，拿到当前分类的数据
 // 来到页面发请求 用生命周期函数
 
@@ -48,9 +37,28 @@ import { onMounted, onBeforeMount, onUnmounted, onUpdated } from 'vue';
 //     console.log('333')
 // })   // 用于清除操作，比如销毁定时器
 
-onMounted(() => {
-    
+const router = useRouter()   // 路由实例router范围大于route
+// console.log(router.currentRoute.value.query.title)  
+
+const route = useRoute()   
+// console.log(route.query.title)  // 当前路由详情
+
+// 放全局没地方写async 不过可以直接写await  因为setup已经封装好了async
+
+const noteList = ref([])
+
+onMounted(async() => {
+    // 页面加载的过程中发请求，拿到当前分类的数据
+    const { data } = await axios.post('/findNoteListByType', {
+        note_type: route.query.title,
+    })
+    // console.log(data)
+    noteList.value = data
 })
+
+const goNoteDetail = (id) => {
+    router.push({ path: '/noteDetail', query: {id: id} })
+}
 
 </script>
 
@@ -62,7 +70,7 @@ onMounted(() => {
     ul {
         display: grid; // 网格布局
         grid-template-columns: 1fr 1fr;   // 二列
-        grid-column-gap: 50px;
+        grid-column-gap: 20px;
         grid-row-gap: 30px;
         // flex-wrap: wrap; // 弹性容器默认不换行
         // justify-content: space-between;  // 空格隔开
@@ -70,8 +78,11 @@ onMounted(() => {
             // width: 50%;  // 如果是50% 两个就会撑满
             // padding: 0 10px;
             // box-sizing: border-box;  // 换个模型
+            // width: 100%;
+            // height: 4rem;
             img {
                 width: 100%;
+                height: 4rem;
                 border-radius: 0.27rem;
             }
             .time {

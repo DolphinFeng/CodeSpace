@@ -6,7 +6,7 @@
                     <van-icon name="wap-nav" />
                 </div>
                 <div>
-                    <van-icon name="edit" />
+                    <van-icon name="edit" @click="goPublish"/>
                     <van-icon name="like-o" />
                     <van-icon name="search" />
                 </div>
@@ -66,6 +66,10 @@ const state = reactive({
 
 const hideMenu = (e) => {
     state.isMenuShow = e
+}
+
+const goPublish = () => {
+  router.push('/notePublish')
 }
 </script>
 
