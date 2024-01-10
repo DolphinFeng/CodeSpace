@@ -1,0 +1,24 @@
+<script>
+    // 不用promise让a先执行完，这个面试题能答对很牛了，这个处理异步方式没有promise优雅但是更高级
+    // a调用完，发布给b去订阅
+
+    let finish = new CustomEvent('finish', {detail: {name: 'ok'}})
+  
+    function fnA() {
+      setTimeout(() => {
+        console.log('请求A完成');
+        window.dispatchEvent(finish);
+      }, 1000)
+    }
+    function fnB() {
+      setTimeout(() => {
+        console.log('请求B完成');
+      }, 500)
+    }
+  
+    fnA()
+    window.addEventListener('finish', () => {  // 只要window成功监听到事件finish就去触发b
+      fnB()
+    })
+  
+  </script>

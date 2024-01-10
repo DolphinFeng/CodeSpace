@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            color: red;
+            font-size: 26px;
+        }
+        body {
+            --color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="title">我是真实的标题</div>
+    </div>
+    <div id="root"></div>
+
+    <script>
+        let root = document.getElementById("root");
+
+        let rootShadow = root.attachShadow({mode: 'closed', delegatesFocus: true});  // open代表影子dom在外部可以被访问到   焦点委托
+
+        rootShadow.innerHTML = `
+            <input />
+            <div class="title shadow">我是影子dom设置的标题</div>
+            <style>
+                :host {
+                    color: var(--color);
+                }
+            </style>
+        `  // 类似document.createElement
+
+        // 按道理只有input才可以聚焦，但是影子dom 二参为true都可以聚焦
+
+        console.log(root.shadowRoot)  // mode 控制别人是否拿到
+        
+        // 影子dom不受全局样式的影响，要自己修改，它还支持css的变量，原生css也支持变量  需要用var函数
+        // 影子dom的应用： UI框架的封装 会占据文档流 可以做样式隔离 scoped 就是只能作用于自己 以防类名冲突
+        // video标签也是
+
+        // css是比较晚才出的定义变量的功能  scss用得$  less用得@  css在二者之后 用了--
+
+        // 影子dom适用于高级的封装
+    </script>
+</body>
+</html>
