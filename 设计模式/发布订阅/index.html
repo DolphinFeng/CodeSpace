@@ -17,29 +17,30 @@
 
     <script>
         // let box = document.getElementById("box");
-        // box.addEventListener("click", () => {  // 事件的本质是模块之间的信息通信
+        // box.addEventListener("click", () => {  // 事件的本质是模块对象之间的信息通信
         //     console.log("box")   // 鼠标和页面的交互连接起来的
         // })   // 这是基本的事件，但有时候需要复杂的事件
 
         let ev = new Event('look', { bubbles: true, cancelable: true })  // 创建一个事件实例 事件能否被冒泡，事件能否被取消 
         // 是否可以取消：所有事件都可以取消  
 
-        // box.addEventListener("look", (e) => {  // 订阅一个事件，事件还没有发布，发布了就可以看见了 
-        //     if (event.cancelable) {
-        //         event.preventDefault();  // 如果事件可以取消就取消事件
-        //     } else {
-        //         console.log("在box上触发了look事件")  
-        //         }
-        // })   
-
-        let box = document.getElementById("box");
-        box.addEventListener("look", () => {  // 订阅一个事件，事件还没有发布，发布了就可以看见了 
-            console.log("在box上触发了look事件")  
+        box.addEventListener("look", (e) => {  // 订阅一个事件，事件还没有发布，发布了就可以看见了 
+            if (event.cancelable) {
+                // console.log(e)
+                event.preventDefault();  // 如果事件可以取消就取消事件
+            } else {
+                console.log("在box上触发了look事件")  
+                }
         })   
 
-        // window.addEventListener("look", () => {
-        //     console.log("在window上触发了look事件")   // 不需要在window上发布，它会冒泡出来，false就不行 
-        // })
+        // let box = document.getElementById("box");
+        // box.addEventListener("look", () => {  // 订阅一个事件，事件还没有发布，发布了就可以看见了 
+        //     console.log("在box上触发了look事件")  
+        // })   
+
+        window.addEventListener("look", () => {
+            console.log("在window上触发了look事件")   // 不需要在window上发布，它会冒泡出来，false就不行 
+        })
 
         box.dispatchEvent(ev); //  box上发布look事件  click是因为发布在了全局，都可以绑定
         // look事件目前看到就可以执行 

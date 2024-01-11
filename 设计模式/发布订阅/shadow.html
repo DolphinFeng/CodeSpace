@@ -23,11 +23,11 @@
     <script>
         let root = document.getElementById("root");
 
-        let rootShadow = root.attachShadow({mode: 'closed', delegatesFocus: true});  // open代表影子dom在外部可以被访问到   焦点委托
+        let rootShadow = root.attachShadow({mode: 'open', delegatesFocus: false});  // open代表影子dom在外部可以被访问到   焦点委托
 
         rootShadow.innerHTML = `
             <input />
-            <div class="title shadow">我是影子dom设置的标题</div>
+            <div class="title">我是影子dom设置的标题</div>
             <style>
                 :host {
                     color: var(--color);

@@ -22,3 +22,24 @@
     })
   
   </script>
+
+<!-- <script>
+  let ev = new Event('ahead')
+
+  function fnA() {
+    setTimeout(() => {
+      console.log('请求A完成')
+      window.dispatchEvent(ev)
+    }, 1000)
+  }
+
+  fnA()
+
+  window.addEventListener('ahead', function fnB() {
+    setTimeout(() => {
+      console.log('请求B完成')
+    }, 500)
+  })
+
+
+</Script> -->

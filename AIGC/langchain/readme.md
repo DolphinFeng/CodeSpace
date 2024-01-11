@@ -65,3 +65,85 @@ git push origin main
 给个建议： fixed openai version bug
 然后提交的请求可以到那边去，这就相当于做了一个贡献
 OpenAI新版本更新后，与LangChain的0.0.235版本不兼容，报错
+
+1.11 
+# AIGC 方向
+    文字生成sql
+传统方向能走，但是难一点
+- GPTs 应用商店正式发布 找到一家有AIGC思维的公司加入
+    AI电商  电商型的项目
+
+- python 
+    - LangChain 
+    - 后端 Flask框架 也是后端框架
+
+- 生成代码 开发提效
+    - Copilot
+    - SQL 如何生成及分析
+
+
+import sqlite3 #轻量的关系型数据库，大佬一般在测试产品想法的时候用这个
+               # python自带数据库，不用安装
+
+conn = sqlite3.connect('FlowerShop.db') # 数据库文件，放在当前目录下  这是数据库连接句柄
+
+cursor = conn.cursor()   游标对象 走到哪执行哪
+
+cursor.execute('''    sqlite完全支持三大范式
+  CREATE TABLE FLOWERS( 
+    ID INTEGER PRIMARY KEY,  字段
+    Name TEXT NOT NULL,  花名用的text文本类型
+    Source TEXT NOT NULL,
+    PurchasePrice REAL,
+    SalePrice REAL,
+    StockQuantity INTEGER,
+    SoldQuantity INTEGER,
+    ExpiryDate DATE,
+    Description TEXT,
+    EntryDate DATE DEFAULT CURRENT_DATE
+  )
+''') 执行sql
+
+flowers = [ ('Rose', 'Flower', 'France', 1.2, 2.5, 100, 10, '2023-12-31', 'A beautiful red rose'), ('Tulip', 'Flower', 'Netherlands', 0.8, 2.0, 150, 25, '2024-12-31', 'A colorful tulip'), ('Lily', 'Flower', 'China', 1.5, 3.0, 80, 5, '2023-12-31', 'An elegant white lily'), ('Daisy', 'Flower', 'USA', 0.7, 1.8, 120, 15, '2023-12-31', 'A cheerful daisy flower'), ('Orchid', 'Flower', 'Brazil', 2.0, 4.0, 50, 2, '2023-12-31', 'A delicate purple orchid')]
+这里就是假数据
+
+for flower in flowers:   循环执行
+  cursor.execute('''
+    INSERT INTO Flowers(Name, Type, Source, PurchasePrice, SalePrice, StockQuantity, SoldQuantity, ExpriyDate, Desciption)
+    values(?,?,?,?,?,?,?,?,?);
+  ''', flower)
+
+  conn.commit() # 事务 要有回滚的能力
+
+  conn.close() 关闭释放理解对象 安全 为了减少线程数 数据库可以高并发的，但是也有上限
+
+python非常适合数据开发，sqlite拥有和sql一样的能力，但是差一点
+
+- SQL 不是查询或数据分析的必需了
+    AIGC 深层次能力
+    LLM可以用自然语言处理，可以生成sql语句，拿到sql后，还可以用sql agent运行sql查询
+
+- 新的数据库查询范式
+    - 用户|小编|老板|产品经理|技术实施 提出问题
+    - chatgpt 自然语言处理能力 生成sql，新手快速上手
+    - 自动执行sql 并拿到查询结果 AI应用 AI Agent LangChain
+        mpv4去用node写sql
+    - 根据用户的需求，生成json还是图表
+    - 得到答案
+可以让任何人都拥有数据分析的能力
+
+Agent：就是一个机器人，可以帮你执行任务
+有没有开发过agent 就是这个数据库agent， 传统需要写一堆代码，现在只要开发一个数据库agent 它代理用户 大模型 数据库进行三方的交流
+
+from langchain.utilities import SQLDatabase 
+langchain里面也有一个utilities 工具库
+
+from langchain.utilities import SQLDatabase # langchain让用户和大模型连接起来 还能连数据库
+from langchain.llms import OpenAI
+from langchain_experimental.sql import SQLDatabaseChain
+
+db = SQLDatabase.from_uri("sqlite:///FlowerShop.db")  // ///表示协议
+llm = OpenAI(temperature=0, verbose=True, api_key="")
+db_chain = SQLDatabaseChain.from_11m(llm, db, verbose=True)  连接起来
+langchain提供了各种chain
+
