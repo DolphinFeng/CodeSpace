@@ -9,13 +9,14 @@ router.post('/login', async (ctx) => {  // 登录接口通常做成post请求 ge
     const { username, password } = ctx.request.body // 前端参数放在请求体中  解构写法
     try {
         const result = await userLogin(username, password)
-        // console.log(result)
+        
         if (result.length) { // 账号密码存在
             let data = {
                 id: result[0].id,
                 nickname: result[0].nickname,
                 username: result[0].username
             }
+            console.log(result)
             ctx.body = {
                 code: '8000', // 非状态码
                 data: data,
