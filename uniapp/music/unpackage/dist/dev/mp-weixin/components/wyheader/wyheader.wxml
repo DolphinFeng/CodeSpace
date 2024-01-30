@@ -1,0 +1,1 @@
+<view class="header"><uni-icons wx:if="{{b}}" bindclick="{{a}}" u-i="0d320f9d-0" bind:__l="__l" u-p="{{b}}"></uni-icons><view class="content"><slot name="content"></slot></view><uni-icons wx:if="{{c}}" u-i="0d320f9d-1" bind:__l="__l" u-p="{{c}}"></uni-icons></view><view class="box"></view>

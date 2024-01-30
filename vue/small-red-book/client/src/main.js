@@ -5,7 +5,7 @@ import './assets/style/reset.css'
 import 'amfe-flexible'
 import 'vant/lib/index.css'
 
-import { Button, Form, Field, CellGroup, Tabbar, TabbarItem, Icon, Divider } from 'vant';
+import { Button, Form, Field, CellGroup, Tabbar, TabbarItem, Icon, Divider, Uploader } from 'vant';
 
 const app = createApp(App)
 // 注册
@@ -18,4 +18,5 @@ app.use(Tabbar)
 app.use(TabbarItem)
 app.use(Icon)
 app.use(Divider)
+app.use(Uploader)
 app.mount('#app')

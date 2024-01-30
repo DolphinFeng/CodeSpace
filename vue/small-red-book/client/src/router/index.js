@@ -52,6 +52,14 @@ const routes = [
         meta: {
             title: '探索'
         }
+    },
+    {
+        path: '/publish',
+        name: 'publish',
+        component: () => import('../views/Publish.vue'),
+        meta: {
+            title: '发布'
+        }
     }
 ]
 

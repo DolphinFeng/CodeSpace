@@ -1,0 +1,92 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationStyle": "custom" // 取消头部，一般小程序需要
+			}
+		},
+		{
+			"path": "pages/play/play",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/follow/follow",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/community/community",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		}
+	],
+	"globalStyle": {  // 全局
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle": "custom"
+	},
+	"tabBar": {
+		"color": "#8a8a8a",
+		"selectedColor": "#d81e06",
+		"backgroundColor": "#fff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "发现",
+				"iconPath": "/static/icon/discover.png",
+				"selectedIconPath": "/static/icon/reddiscover.png"
+			},
+			{
+				"pagePath": "pages/play/play",
+				"text": "播客",
+				"iconPath": "/static/icon/play.png",
+				"selectedIconPath": "/static/icon/redplay.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "/static/icon/mine.png",
+				"selectedIconPath": "/static/icon/redmine.png"
+			},
+			{
+				"pagePath": "pages/community/community",
+				"text": "社区",
+				"iconPath": "/static/icon/community.png",
+				"selectedIconPath": "/static/icon/redcommunity.png"
+			},
+			{
+				"pagePath": "pages/follow/follow",
+				"text": "关注",
+				"iconPath": "/static/icon/follow.png",
+				"selectedIconPath": "/static/icon/redfollow.png"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}
