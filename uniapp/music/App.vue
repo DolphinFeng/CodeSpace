@@ -43,8 +43,8 @@
 					},
 					success: (res) => {
 						console.log(res)
-						let nickname = res.data.profile && res.data.profile.nickname || ''
-						let id = res.data.profile && res.data.profile.userId || ''
+						let nickname = res.data.profile && res.data.profile.nickname
+						let id = res.data.profile && res.data.profile.userId
 						let avatar = res.data.profile && res.data.profile.avatarUrl
 						this.$store.commit('getUserInfo', { nickname, userId: id, avatar}) // 存这些信息
 					}
