@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul class="list" id="list">
+            <li class="item" v-for="item in list">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        const { createApp, ref} = Vue
+
+        createApp({
+            setup() {
+
+                const list = ref(['html', 'css', 'js'])
+
+                return {
+                    list
+                }
+
+            }
+        }).mount('#app')
+    </script>
+
+    <script>
+        // compiler编译器拿到代码后通过各种正则匹配解析成如下  是一个对象  清楚这个流程即可
+        let Dom = {  // 虚拟dom
+            tagName: 'ul',
+            props: {
+                class: 'list',
+                id: 'list'
+            },
+            children: [
+                {
+                    tagName: 'li',
+                    props: {
+                        class: 'item'
+                    },
+                    children: ['html']
+                },
+                {
+                    tagName: 'li',
+                    props: {
+                        class: 'item'
+                    },
+                    children: ['css']
+                }, 
+                {
+                    tagName: 'li',
+                    props: {
+                        class: 'item'
+                    },
+                    children: ['js']
+                }
+            ]
+        }
+    </script>
+</body>
+</html>

@@ -11,13 +11,13 @@
 // 2 = 10  4 = 100 8 = 100  16 = 1000
 // 2-1 = 01  4-1 = 011 
 // 所以该数和该数-1 按位与就全是0
-// const num = 15
-// function isPower(num) {
-//     if (num > 0) {
-//         return (num & (num - 1)) === 0
-//     }
-//     return false
-// }
-// console.log(isPower(num))
+const num = 15
+function isPower(num) {
+    if (num > 0) {
+        return (num & (num - 1)) === 0
+    }
+    return false
+}
+console.log(isPower(num))
 
 // 面试题：问你关于数字，想不到就先往二进制想

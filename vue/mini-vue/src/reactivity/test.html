@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module"> 
+    // module可以写import
+        import { reactive } from './reactive.js'
+        // import { effect } from './effect.js'
+
+        const state = reactive({
+            name: 'dolphin',
+            age: 18
+        })
+
+        // effect(
+        //     () => {
+        //         console.log(`${state.name}今年${state.age}`);
+        //     }, 
+        //     {lazy: false}
+        // )
+
+        // console.log(state.name) // 读取代理对象的属性
+        // console.log(state.age);
+        // state.age = 19
+
+        setInterval(() => {
+            state.age++  // 赋值前会读值
+        }, 2000)
+
+        // state.age++ // 把用到这个东西的函数都执行一遍
+    </script>
+</body>
+</html>

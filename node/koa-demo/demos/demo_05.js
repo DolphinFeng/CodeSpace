@@ -21,6 +21,7 @@ router.get('/main', main)
 router.get('/about', about)
 
 app.use(logger)
+
 app.use(router.routes()) 
 app.use(router.allowedMethods({})) 
 

@@ -23,9 +23,9 @@ const msg = ref('你好啊')
 const refP = ref(null)
 // console.log(refP.value)   入口函数setup开始加载到打印
 // 挂载和渲染不一样，渲染时间和硬件相关
-// setTimeout(() => {  // 异步宏任务  相比较nextTick，nextTick先执行，所以nextTick是微任务
-//   console.log(refP.value, 'setTimeout')
-// }, 0)
+setTimeout(() => {  // 异步宏任务  相比较nextTick，nextTick先执行，所以nextTick是微任务
+  console.log(refP.value, 'setTimeout')
+}, 0)
 // onBeforeMount(() => {  // 相比较nextTick，这个先执行
 //   console.log(refP.value)
 // })
@@ -35,14 +35,14 @@ nextTick(() =>{  // 可以打印，但是nextTick又不是生命周期，很特�
 onMounted(() => {  // 挂载完执行onMounted
   console.log(refP.value, 'onMounted')
 })
-// console.log(refP.value)   相比较nextTick，这个先执行，所以nextTick是异步代码
+console.log(refP.value, 'log')   // 相比较nextTick，这个先执行，所以nextTick是异步代码
 
-// const updataMsg = () => {  // IO宏任务, 可以拿到p标签的dom结构
-//   // console.log(document.querySelector('p'), 'updataMsg') // 先获取dom再去改值 
-//   msg.value = '更新后'
-//   // console.log(refP.value, 'updataMsg')
-//   // console.log(document.querySelector('p'), 'updataMsg')
-// }
+const updataMsg = () => {  // IO宏任务, 可以拿到p标签的dom结构
+  // console.log(document.querySelector('p'), 'updataMsg') // 先获取dom再去改值 
+  msg.value = '更新后'
+  // console.log(refP.value, 'updataMsg')
+  // console.log(document.querySelector('p'), 'updataMsg')
+}
 
 // nextTick是挂载完，还是渲染完执行
 </script>

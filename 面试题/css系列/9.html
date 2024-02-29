@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            list-style: none;
+            width: 200px;
+            height: 50px;
+            background-color: aqua;
+            /* flex-grow: 1; */
+            /* 放大比例,默认0 */
+            /* flex-shrink: 1; */
+            /* 等比缩小,默认1 */
+            /* flex-basis: 250px; */
+            /* 权重比宽高高,这个是初始尺寸 */
+            /* flex: 1; */
+            /* 1比1的比例继承父容器的宽度 */
+            flex: 1 1 300px
+            /* 分别对应flex-grow flex-shrink flex-basis */
+        }
+        ul {
+            height: 100vh;
+            display: flex;
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+            /* 改变主轴方向 默认值为row  row-reverse就是从右往左排列 column-reverse就是从下往上排布 */
+            /* flex-wrap: wrap; */
+            /* 超出则换行 不换行会自动缩小 */
+            /* flex-flow: row nowrap; */
+            /* 主轴为默认，并且不换行 */
+            /* justify-content: center; */
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* 子容器交叉轴居中 flex-start为从容器开始的地方就是居左对齐 flex-end就是居右对齐 */
+            /* justify-content: space-around; */
+            /* 给每个子容器都添加相同的间隙 */
+            /* justify-content: space-between; */
+            /* 第一个子元素最左，第二个元素最右，其余均匀分布 */
+            /* align-items: flex-start; */
+            /* align-items: center; */
+            /* align-items: flex-end; */
+            /* 交叉轴对齐方式 居上 居中 居下 前提需要有高度 */
+            /* align-items: baseline; */
+            /* 对准文字基线 */
+            /* align-items: stretch; */
+            /* 交叉轴默认方式，这个没用 */
+            /* align-content: center; */
+            /* 居交叉轴 flex-start居上对齐 flex-end居下对齐*/
+            /* align-content: space-between; */
+            /* 同样的道理在交叉轴上都有 */
+            
+        }
+        .item2 {
+            /* order: -1; */
+            /* 控制子元素排列顺序 */
+            /* flex-shrink: 0; */
+            /* 第一个item就是不缩小 */
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+    </ul>
+</body>
+</html>

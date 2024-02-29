@@ -12,7 +12,7 @@ const main = (ctx) => {
         // console.log(data);
         ctx.body = data
     }else if (ctx.url.startsWith('/home')) {
-        // ctx.response.type = 'json' // 就是application/json
+        ctx.response.type = 'json' // 就是application/json
         const page = fs.readFileSync('./template.html', 'utf8')
         ctx.body = page // 浏览器拿到的响应体如果是html代码，他会去加载它
     }

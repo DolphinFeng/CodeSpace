@@ -42,7 +42,7 @@
 						cookie: key
 					},
 					success: (res) => {
-						console.log(res)
+						// console.log(res)
 						let nickname = res.data.profile && res.data.profile.nickname
 						let id = res.data.profile && res.data.profile.userId
 						let avatar = res.data.profile && res.data.profile.avatarUrl
@@ -56,5 +56,43 @@
 
 <style>
 	/*每个页面公共css */
-	@import url("http://at.alicdn.com/t/c/font_4417678_dwqcjphm3aq.css");
+	@import url("http://at.alicdn.com/t/c/font_4417678_u9jz7s9okl9.css");
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	html, body {
+		width: 100%;
+		height: 100%;
+	}
+	#app {
+		height: 100%;
+		overflow-y: scroll;
+	}
+	uni-page-body {
+		height: 100%;
+		overflow-y: scroll;
+	}
+	.boxShadow {
+		position: relative;
+		perspective: 400px;
+		transform-style: preserve-3d;
+	}
+	.boxShadow::after {
+		content: '';
+		display: block;
+		height: 100%;
+		width: 95%;
+		position: absolute;
+		top: -16rpx;
+		left: 2.5%;
+		background-color: #6e9d8b;
+		z-index: 2;
+		border-radius: 16rpx;
+		transform: translateZ(-30rpx);
+	}
+	.boxShadow image {
+		position: relative;
+		z-index: 10;
+	}
 </style>

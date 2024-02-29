@@ -18,6 +18,7 @@ const routes = [
         },
         // beforeEnter: (to, from, next) => { // 独享守卫，比如跳广告
         //     console.log(to, from);
+        //     next()
         // }
     }
     
@@ -47,9 +48,9 @@ const router = createRouter({
 // })
 
 // 全局解析钩子
-// router.beforeResolve((to, from, next) => {  // 路由被解析 代码被编译 之前触发  和beforeEach区别不大  跳跃中
-//     console.log(to, from);
-// })
+router.beforeResolve((to, from, next) => {  // 路由被解析 代码被编译 之前触发  和beforeEach区别不大  跳跃中
+    console.log(to, from);
+})
 
 // 全局后置钩子
 // router.afterEach((to, from) => {  // 落地后

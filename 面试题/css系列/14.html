@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 20vh;
+            text-align: center;
+            line-height: 100vh;
+        }
+        .box.img:nth-child(2){
+            background-position: center center;
+            /* 背景图片水平垂直居中 */
+            background-size: cover;
+            /* 覆盖整个屏幕 */
+            background-attachment: fixed;
+            /* 固定在最底层 */
+            background-image: url('https://ts3.cn.mm.bing.net/th?id=ORMS.342b2c95ab5ae7570c0d0d3a0a68004d&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0');
+        }
+        .box.img:nth-child(4){
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-image: url('https://ts3.cn.mm.bing.net/th?id=ORMS.3f01fc441c612e673867c31284341c43&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=1.25&p=0');
+        }
+        .box.img:nth-child(6){
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-image: url('https://ts3.cn.mm.bing.net/th?id=ORMS.03797ce48cbc07bf9815a05232c35b27&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0');
+        }
+        .box.img:nth-child(8){
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-image: url('https://ts3.cn.mm.bing.net/th?id=ORMS.b6811d54e9b136fca2e95d3603e9b3dc&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.25&p=0');
+        }
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box img">2</div>
+
+    <div class="box">3</div>
+    <div class="box img">4</div>
+
+    <div class="box">5</div>
+    <div class="box img">6</div>
+
+    <div class="box">7</div>
+    <div class="box img">8</div>
+</body>
+</html>

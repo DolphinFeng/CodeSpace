@@ -1,0 +1,17 @@
+{
+  "name": "own_vite",
+  "version": "1.0.0",
+  "description": "一些面试题：\r     - vue项目是怎么跑起来的 工程化\r         做的是个SPA单页应用，.vue源码是怎么被解析的\r         - 工程化\r             这个词原本来自服务端，项目初始化，开发流程\r             index.html 是 首页，是挂载点 和工程化挂钩的地方是：5173端口，http访问启动需要http服务 用koa启动http服务 \r     - 热更新\r         用websocket + node 可写文章\r     - vite 为什么比 webpack 快 ？ 说出区别 优势",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.15.0",
+    "vue": "^3.4.19"
+  }
+}

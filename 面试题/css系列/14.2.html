@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            height: 100%;
+            
+            
+        }
+        #app{
+            width: 100vw;
+            height: 400px;
+            text-align: center;
+            font-style: 30px;
+            padding-top: 100px;
+            overflow-y: scroll;
+            perspective: 1px;
+            /* 设置3d角度 视角安置在z轴的1px位置 滚动速度一样 由于近大远小 才感觉速度不一 */
+            /* transform-style: preserve-3d; */
+        }
+        .box1{
+            height: 200px;
+            width: 500px;
+            background: #d98383;
+        }
+        .box2{
+            height: 200px;
+            width: 500px;
+            background: #f62020;
+            transform: translateZ(-3px);
+        }
+        .box3{
+            height: 200px;
+            width: 500px;
+            background: #641a42;
+            transform: translateZ(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+    </div>
+</body>
+</html>

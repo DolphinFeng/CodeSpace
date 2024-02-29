@@ -12,6 +12,7 @@ const server = http.createServer((req, res) => { // (请求体，响应体)
     }else {
         res.end('Not Found')
     }
+    // res.end('Welcome to Node Server')
 })
 
 server.listen(3000, () => { // 3000端口

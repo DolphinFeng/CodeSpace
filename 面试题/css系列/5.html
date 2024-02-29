@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            opacity: 0;
+            /* display: none; */
+            /* visibility: hidden;  无法响应事件*/
+            /* display: none; 不占据文档流*/
+            /* opacity: 0; 元素依旧占据文档流 可以响应事件*/
+            /* animation: hide 2s ease;  css单反作动画，GPU有个加速能力，动用了这个能力是不会重绘的 */
+            /* position: absolute; */
+            /* left: 100px; */
+            /* top: -99999px; */
+            /* left: -9999px; */
+            /* relative相对于自身的文档流的位置 */
+            /* absolute相对于外层有定位属性 */
+
+            /* clip-path: polygon(0 0, 50px 0, 0 50px, 50px 50px) */
+            /* clip-path: circle(0%) */
+        }
+
+        @keyframes hide {
+            /* css定义动画的语法 */
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        let box = document.querySelector('.box')
+
+        box.addEventListener('click', () => {
+            console.log('box');
+        })
+    </script>
+</body>
+</html>

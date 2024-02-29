@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- vite比传统的webpack工程化工具更快更优秀的地方 -->
+    <!-- 因为如今的浏览器支持模块化了，可以直接使用import,不需要转成require -->
+    <!-- mian.ts 是单点入口，整理依赖关系 App.vue Vue-router Pinia -->
+    <!-- App.vue 依赖于 解析vue文件 router element-plus做布局 -->
+    <script src="/src/main.js" type="module"></script>
+    <!-- 这个东西应该写在底部，防止阻塞 -->
+    <!-- esmodule较新 告诉浏览器用esmodule来解析文件的依赖关系 -->
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            /* display: flex; */
+            /* display: grid; */
+            /* grid-template-columns: 200px 1fr; */
+            height: 200px;
+        }
+        .left {
+            width: 200px;
+            height: 100%;
+            background-color: antiquewhite;
+            float: left;
+        }
+        .right {
+            /* flex: 1; */
+            background-color: aqua;
+            height: 100%;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

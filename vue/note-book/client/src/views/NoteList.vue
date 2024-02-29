@@ -24,18 +24,21 @@ import axios from '../api'
 // 钩子生命周期过程: 1. 读到.vue代码  2. 编译  3. 挂载
 
 // console.log('hello', document.querySelector('.note-list'))  // 操作dom结构很费性能
+console.log('hello');
 
-// onBeforeMount(() => {
-//     console.log('111')
-// })
+onMounted(() => {
+    console.log('onMounted')
+}) 
 
-// onMounted(() => {
-//     console.log('222', document.querySelector('.note-list'))
-// })   // 习惯性放这里发请求，有些时候要求操作dom结构 这三种方式其实都可以
+onBeforeMount(() => {
+    console.log('onBeforeMount', document.querySelector('.note-list'))
+})
 
-// onUnmounted(() => {
-//     console.log('333')
-// })   // 用于清除操作，比如销毁定时器
+  // 习惯性放这里发请求，有些时候要求操作dom结构 这三种方式其实都可以
+
+onUnmounted(() => {
+    console.log('333')
+})   // 用于清除操作，比如销毁定时器
 
 const router = useRouter()   // 路由实例router范围大于route
 // console.log(router.currentRoute.value.query.title)  

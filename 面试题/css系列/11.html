@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 50px;
+            background-color: blueviolet;
+            /* transition: width 2s linear; */
+            /* 2s内 linear匀速 ease慢快慢 ease-in越来越快 ease-out越来越慢 ease-in-out快到慢*/
+            transition: width 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+            /* 贝塞尔曲线这个参数先快速上涨,后慢速下降 */
+        }
+        .box:hover{
+            /* 伪类选择器 */
+            width: 500px;
+        }
+        .wrap{
+            margin-top: 30px;
+            width: 200px;
+            height: 50px;
+            background-color: red;
+            transition: all 2s;
+        }
+        .wrap:hover{
+            transform: translateX(100px) rotateZ(90deg);
+            /* 从左往右移100px 绕z轴旋转90° */
+        }
+
+        .container {
+            margin-top: 30px;
+            width: 200px;
+            height: 50px;
+            background-color: aquamarine;
+            animation: rotate 2s linear infinite;
+            /* infinite是无限循环 */
+        }
+        @keyframes rotate {
+            /* 自定义动画名 */
+            0%{
+                transform: rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="wrap"></div>
+    <div class="container"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+            margin: 0;
+            padding: 0;
+        } */
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 5px solid #000;
+            padding: 10px;
+            margin: 20px;
+            box-sizing: border-box;
+            /* box-sizing: border-box; 要求浏览器以IE盒模型加载这个容器   */
+            /* box-sizing: content-box; 要求浏览器以标准盒模型加载这个容器 也就是默认值 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">盒子模型</div>
+
+    <script>
+        // 这个盒子为370  300 + 两个边框10 + 两个内边距 20 + 两个外边距
+        // 所以默认情况一个盒子的总宽度：内容 + 边框 + 内边距 + 外边距
+    </script>
+</body>
+</html>

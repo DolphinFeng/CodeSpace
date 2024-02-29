@@ -17,7 +17,7 @@ const updateList = () => {
     list.value.push(...new Array(10).fill(1))
     // const liItem = document.querySelector('li:last-child') // 获取到最后一个li
     // liItem.scrollIntoView({ behavior: 'smooth' }) // 原生js的方法  同步
-    // 但是读不到最后一个，用nextTick解决， 用定时器太不优雅了
+    // s但是读不到最后一个，用nextTick解决， 用定时器太不优雅了
     // nextTick(() => {
     //     const liItem = document.querySelector('li:last-child')
     //     liItem.scrollIntoView({ behavior: 'smooth' })

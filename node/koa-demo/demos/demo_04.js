@@ -1,7 +1,6 @@
 const Koa = require('koa')
 const Router = require('@koa/router') // 引入刚才安装的路由 
 const router = new Router()
-const fs = require('fs') 
 const app = new Koa() 
 
 // if-else也是靠路由，但是不是一个东西

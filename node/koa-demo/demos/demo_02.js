@@ -15,8 +15,7 @@ const main = (ctx) => { // 只要被app use掉的函数 一定会有一个上下
         // 这是默认的，那么如何控制呢
         ctx.response.type = 'json' // 其实就是控制响应头的类型 浏览器就把它当成json加载
         ctx.body = '<h2>Hello World</h2>' // 不当成字符串，当成标签了 检查去到网络 看 响应头 Content-Type: text/html; charset=utf-8 告诉浏览器
-        
-        
+
     }else if(ctx.url.startsWith('/detail')) {
         ctx.body = 'detail'
     }else {

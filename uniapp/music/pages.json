@@ -42,6 +42,14 @@
 				"navigationBarTitleText" : "",
 				"enablePullDownRefresh" : false
 			}
+		},
+		{
+			"path" : "pages/songsList/songsList",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
 	"globalStyle": {  // 全局
@@ -75,16 +83,16 @@
 				"selectedIconPath": "/static/icon/redmine.png"
 			},
 			{
-				"pagePath": "pages/community/community",
-				"text": "社区",
-				"iconPath": "/static/icon/community.png",
-				"selectedIconPath": "/static/icon/redcommunity.png"
-			},
-			{
 				"pagePath": "pages/follow/follow",
 				"text": "关注",
 				"iconPath": "/static/icon/follow.png",
 				"selectedIconPath": "/static/icon/redfollow.png"
+			},
+			{
+				"pagePath": "pages/community/community",
+				"text": "社区",
+				"iconPath": "/static/icon/community.png",
+				"selectedIconPath": "/static/icon/redcommunity.png"
 			}
 		]
 	},
