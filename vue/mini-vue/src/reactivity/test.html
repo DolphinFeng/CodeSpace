@@ -9,19 +9,19 @@
     <script type="module"> 
     // module可以写import
         import { reactive } from './reactive.js'
-        // import { effect } from './effect.js'
+        import { effect } from './effect.js'
 
         const state = reactive({
             name: 'dolphin',
             age: 18
         })
 
-        // effect(
-        //     () => {
-        //         console.log(`${state.name}今年${state.age}`);
-        //     }, 
-        //     {lazy: false}
-        // )
+        effect(
+            () => {
+                console.log(`${state.name}今年${state.age}`);
+            }, 
+            {lazy: false}
+        )
 
         // console.log(state.name) // 读取代理对象的属性
         // console.log(state.age);

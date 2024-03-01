@@ -30,16 +30,16 @@ const state = reactive({ // 响应式的对象
 //   num: 2,
 // })
 
-// const num = computed(() => {
-  // return state.count * 10
-// })
+const num = computed(() => {
+  return state.count * 10
+})
 
-// watch(
-//   () => state.count, 
-//   (newVal, oldVal) => {
-//     console.log(newVal, oldVal);
-//   }
-// )
+watch(
+  () => state.count, 
+  (newVal, oldVal) => {
+    console.log(newVal, oldVal);
+  }
+)
 
 // effect(() => {  // 类似生命周期，一开始就会执行，但是这个东西yyx是作依赖收集用的，官方文档没有解释 ，参二为true，不执行，可控
   // console.log('effect');
