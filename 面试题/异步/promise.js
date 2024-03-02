@@ -116,6 +116,48 @@ class MyPromise {
 
         })
     }
+
+    static all (promises) {
+        return new MyPromise((resolve, reject) => {
+            let count = 0, arr = []
+            for (let i = 0; i < promises.length; i++) {
+                // for in 也可迭代数组，of 是迭代器属性
+                promises[i].then(
+                    (value) => {
+                        count++
+                        arr[i] = value
+                        if (count === promises.length) {
+                            resolve(arr)
+                        }
+                    },
+                    (reason) => {
+                        reject(reason)
+                    }
+                )
+            }
+        })
+    }
+
+    static any () { // 只要一个好的，就是好的
+        return new MyPromise((resolve, reject) => {
+            let count = 0, errors = []
+            for (let i = 0; i < promises.length; i++) {
+                // for in 也可迭代数组，of 是迭代器属性
+                promises[i].then(
+                    (value) => {
+                        resolve(value)
+                    },
+                    (reason) => {
+                        count++
+                        errors[i] = reason
+                        if (count === promises.length) {
+                            reject(new AggregateError(errors))
+                        }
+                    }
+                )
+            }
+        })
+    }
 }
 
 let p = new MyPromise((resolve, reject) => {

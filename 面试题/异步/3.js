@@ -54,6 +54,7 @@ function b() {
 
 // 如果then放的不是回调，就不执行，怕小可爱这样写，源码需要考虑到
 
-Promise.race([a(), b()]).then((res) => {
-    console.log(res); // 打印的是第一个函数执行后的东西，谁先resolve出值，race需要返回一个promise对象
-})
+// Promise.race([a(), b()]).then((res) => {
+//     console.log(res); // 打印的是第一个函数执行后的东西，谁先resolve出值，race需要返回一个promise对象
+// })
+

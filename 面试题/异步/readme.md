@@ -24,4 +24,9 @@
     3. 可以知道是否执行完毕
     4. 可以借助 Thunk 和 co 模块 处理异步，但是写法复杂，所以generator函数的意义就是为了打造 async await
         co模块是别人封装的小工具npm init -y   npm i co 
-
+4. async/await
+    es7的一种新的处理异步代码的方案
+    优点：好用，就两个单词
+    缺点：对比于promise来说，promise可以有个catch，处理不下去可以捕获错误，但是async没有，所以通常都是自己包裹一个try catch
+    async如何处理异步？
+    其本质基于promise + generator函数的封装，实现了自动化执行next的方案，通过一个递归的方式不断执行next函数，等到generator的done为true时结束递归，来拿到async的最终结果，其实这也是co模块的原理，co模块就是generator处理异步别人封装的方法，
