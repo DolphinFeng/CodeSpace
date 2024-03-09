@@ -20,7 +20,12 @@
             () => {
                 console.log(`${state.name}今年${state.age}`);
             }, 
-            {lazy: false}
+            {
+                lazy: false,
+                // scheduler() { // 上的打印用到了数据，就不能和这里的调度函数同时触发
+                //     console.log('测试调度任务');
+                // }
+            }
         )
 
         // console.log(state.name) // 读取代理对象的属性

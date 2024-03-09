@@ -1,0 +1,12 @@
+{
+  "name": "node_demo",
+  "version": "1.0.0",
+  "description": "- 简历有所表现\r     - AIGC\r     了解 OpenAI 相关接口 和 LLM 的应用，在接触 langchain AI应用框架\r     - langchain js 版本",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

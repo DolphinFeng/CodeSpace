@@ -21,23 +21,23 @@ let tree = {
 }
 
 // 先序遍历
-// function preorder(root) {
-//     if(!root)  return  // 出口
+function preorder(root) {
+    if(!root)  return  
     
-//     console.log(root.val) 
-//     preorder(root.left)
-//     preorder(root.right)
-// }
-// preorder(tree)
+    console.log(root.val) 
+    preorder(root.left)
+    preorder(root.right)
+}
+preorder(tree)
 
-// function minorder(root) {
-//     if(!root)  return  // 出口
+function minorder(root) {
+    if(!root)  return  
     
-//     minorder(root.left)
-//     console.log(root.val) 
-//     minorder(root.right)
-// }
-// minorder(tree)
+    minorder(root.left)
+    console.log(root.val) 
+    minorder(root.right)
+}
+minorder(tree)
 
 function backorder(root) {
     if(!root) return 

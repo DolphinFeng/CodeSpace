@@ -1,0 +1,16 @@
+{
+  "name": "ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "dependencies": {
+    "langchain": "^0.0.96",
+    "openai": "^3.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

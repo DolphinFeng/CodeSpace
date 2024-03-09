@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">获取数据</button>
+
+    <!-- <script src="http://localhost:3000"></script> -->
+
+    <!-- <script src="http://localhost:3000?cb='callback'"></script> -->
+
+    <script>
+        // 1.借助script的src属性给后端发送一个请求，且携带一个参数callback
+        // 2.前端在window对象上，添加了一个callback函数
+        // 3.后端接收到这个参数callback后，将要返回给前端的数据和这个参数callback进行拼接，成'callback(data)'这样，并返回
+        // 4.因为window上已经有callback函数，后端又返回了一个形如callback的调用，也就是callback(data)，浏览器会将该字符串执行成callback的调用
+
+        function jsonp (url, cb) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script') // 可以创建h5的任意标签
+                script.src = `${url}?cb=${cb}` // http://localhost:3000?cb='callback' 前端写死一个字符串传给后端 
+                document.body.appendChild(script) // 把script添加到body中去，浏览器会自动发请求了
+
+                window[cb] = (data) => { // 给window加上一个callback的属性，值为一个函数体
+                    resolve(data)
+                }
+                // 我们没有调用这个函数，但是这个函数还是执行了，是后端执行的
+            })
+        }
+
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click', () => {
+            // 发请求 这样会跨域
+            // fetch('http://localhost:3000')
+            // .then((response) => {
+            //     return response.json()
+            // })
+            // .then(res => {
+            //     console.log(res);
+            // })
+
+            // jsonp的方式
+            jsonp('http://localhost:3000', 'callback')
+            .then(res => {
+                console.log('后端返回的结果：'+res);
+            })
+        })
+    </script>
+</body>
+</html>

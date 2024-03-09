@@ -26,6 +26,7 @@ export function effect(fn, options={}) { // fn是箭头函数
     if (!options.lazy) {
         effectFn()
     }
+    effectFn.scheduler = options.scheduler
     return effectFn
 }
 
@@ -65,6 +66,10 @@ export function trigger(target, key) {
     }
 
     deps.forEach(effectFn => {
-        effectFn()
+        if (effectFn.scheduler) {
+            effectFn.scheduler()
+        } else {
+            effectFn()
+        }
     })
 }
